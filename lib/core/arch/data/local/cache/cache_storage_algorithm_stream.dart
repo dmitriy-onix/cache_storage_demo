@@ -9,23 +9,25 @@ import 'package:onix_flutter_core_models/onix_flutter_core_models.dart';
 abstract class CacheStorageAlgorithmStream<T> {
   final CacheStorage<T> _storage;
 
-  const CacheStorageAlgorithmStream({required CacheStorage<T> storage})
-      : _storage = storage;
+  const CacheStorageAlgorithmStream({
+    required CacheStorage<T> storage,
+  }) : _storage = storage;
 
   static CacheStorageAlgorithmStream<T> fromPolicy<T>({
     required CacheStorage<T> cacheStorage,
-    CacheStoragePolicy policy = CacheStoragePolicy.networkPreferably,
-  }) =>
-      switch (policy) {
-        CacheStoragePolicy.networkPreferably =>
-          _NetworkPreferablyAlgorithm(storage: cacheStorage),
-        CacheStoragePolicy.cachePreferably =>
-          _CachePreferablyAlgorithm(storage: cacheStorage),
-        CacheStoragePolicy.cacheOnly =>
-          _CacheOnlyAlgorithm(storage: cacheStorage),
-        CacheStoragePolicy.cacheAndBackgroundUpdate =>
-          _CacheAndBackgroundUpdateAlgorithm(storage: cacheStorage),
-      };
+    required CacheStoragePolicy policy,
+  }) {
+    return switch (policy) {
+      CacheStoragePolicy.networkPreferably =>
+        _NetworkPreferablyAlgorithmStream(storage: cacheStorage),
+      CacheStoragePolicy.cachePreferably =>
+        _CachePreferablyAlgorithmStream(storage: cacheStorage),
+      CacheStoragePolicy.cacheOnly =>
+        _CacheOnlyAlgorithmStream(storage: cacheStorage),
+      CacheStoragePolicy.cacheAndBackgroundUpdate =>
+        _CacheAndBackgroundUpdateAlgorithm(storage: cacheStorage),
+    };
+  }
 
   Stream<Result<T>> execute(
     Future<Result<T>> Function() action,
@@ -38,7 +40,7 @@ abstract class CacheStorageAlgorithmStream<T> {
       await _storage.save(key, value);
     } catch (error, stackTrace) {
       logger.e(
-        '$runtimeType._safeCache()',
+        '$runtimeType._safeCacheSave() failed for key $key',
         error: error,
         stackTrace: stackTrace,
       );
@@ -46,8 +48,9 @@ abstract class CacheStorageAlgorithmStream<T> {
   }
 }
 
-class _CachePreferablyAlgorithm<T> extends CacheStorageAlgorithmStream<T> {
-  const _CachePreferablyAlgorithm({required super.storage});
+class _CachePreferablyAlgorithmStream<T>
+    extends CacheStorageAlgorithmStream<T> {
+  const _CachePreferablyAlgorithmStream({required super.storage});
 
   @override
   Stream<Result<T>> execute(
@@ -57,121 +60,118 @@ class _CachePreferablyAlgorithm<T> extends CacheStorageAlgorithmStream<T> {
   }) {
     final controller = StreamController<Result<T>>();
 
-    _performOperation(controller, key, expirationDuration, action);
-
-    return controller.stream;
-  }
-
-  Future<void> _performOperation(
-    StreamController<Result<T>> controller,
-    String key,
-    Duration? expirationDuration,
-    Future<Result<T>> Function() action,
-  ) async {
-    try {
-      final cache = await _storage.get(
-        key,
-        expirationDuration: expirationDuration,
-      );
-
-      if (cache.isOk) {
-        controller.add(cache);
-      }
-
-      final networkResult = await action();
-
-      if (networkResult.isOk) {
-        await _safeCache(key, networkResult.data);
-      }
-      controller.add(networkResult);
-    } catch (e, s) {
-      controller.add(Result.error(error: CacheStorageUndefinedFailure(e, s)));
-    } finally {
-      await controller.close();
-    }
-  }
-}
-
-class _CacheOnlyAlgorithm<T> extends CacheStorageAlgorithmStream<T> {
-  const _CacheOnlyAlgorithm({required super.storage});
-
-  @override
-  Stream<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
-    Duration? expirationDuration,
-  }) {
-    final controller = StreamController<Result<T>>();
-
-    _performOperation(controller, key, expirationDuration);
-
-    return controller.stream;
-  }
-
-  Future<void> _performOperation(
-    StreamController<Result<T>> controller,
-    String key,
-    Duration? expirationDuration,
-  ) async {
-    try {
-      final cache = await _storage.get(
-        key,
-        expirationDuration: expirationDuration,
-      );
-      controller.add(cache);
-    } catch (e, s) {
-      controller.add(Result.error(error: CacheStorageUndefinedFailure(e, s)));
-    } finally {
-      await controller.close();
-    }
-  }
-}
-
-class _NetworkPreferablyAlgorithm<T> extends CacheStorageAlgorithmStream<T> {
-  const _NetworkPreferablyAlgorithm({required super.storage});
-
-  @override
-  Stream<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
-    Duration? expirationDuration,
-  }) {
-    final controller = StreamController<Result<T>>();
-
-    _performOperation(controller, key, expirationDuration, action);
-
-    return controller.stream;
-  }
-
-  Future<void> _performOperation(
-    StreamController<Result<T>> controller,
-    String key,
-    Duration? expirationDuration,
-    Future<Result<T>> Function() action,
-  ) async {
-    try {
-      final networkResult = await action();
-
-      if (networkResult.isOk) {
-        await _safeCache(key, networkResult.data);
-        controller.add(networkResult);
-      } else {
-        final cache = await _storage.get(
+    controller.onListen = () async {
+      try {
+        final cacheResult = await _storage.get(
           key,
           expirationDuration: expirationDuration,
         );
 
-        if (cache.isOk) {
-          controller.add(cache);
+        if (cacheResult.isOk) {
+          controller.add(cacheResult);
+          await controller.close();
+          return;
+        }
+
+        logger.i(
+          '_CachePreferablyAlgorithmStream: Cache miss/error for key "$key", trying network for stream.',
+        );
+        final networkResult = await action();
+        controller.add(networkResult);
+
+        if (networkResult.isOk) {
+          await _safeCache(key, networkResult.data);
+        }
+      } catch (e, s) {
+        controller.add(Result.error(error: CacheStorageUndefinedFailure(e, s)));
+      } finally {
+        if (!controller.isClosed) {
+          await controller.close();
+        }
+      }
+    };
+    return controller.stream;
+  }
+}
+
+class _CacheOnlyAlgorithmStream<T> extends CacheStorageAlgorithmStream<T> {
+  const _CacheOnlyAlgorithmStream({required super.storage});
+
+  @override
+  Stream<Result<T>> execute(
+    Future<Result<T>> Function() action,
+    String key, {
+    Duration? expirationDuration,
+  }) {
+    final controller = StreamController<Result<T>>();
+
+    controller.onListen = () async {
+      try {
+        final cacheResult = await _storage.get(
+          key,
+          expirationDuration: expirationDuration,
+        );
+        controller.add(cacheResult);
+        await controller.close();
+      } catch (e, s) {
+        controller.add(Result.error(error: CacheStorageUndefinedFailure(e, s)));
+      } finally {
+        if (!controller.isClosed) {
+          await controller.close();
+        }
+      }
+    };
+    return controller.stream;
+  }
+}
+
+class _NetworkPreferablyAlgorithmStream<T>
+    extends CacheStorageAlgorithmStream<T> {
+  const _NetworkPreferablyAlgorithmStream({required super.storage});
+
+  @override
+  Stream<Result<T>> execute(
+    Future<Result<T>> Function() action,
+    String key, {
+    Duration? expirationDuration,
+  }) {
+    final controller = StreamController<Result<T>>();
+
+    controller.onListen = () async {
+      try {
+        final networkResult = await action();
+
+        if (networkResult.isOk) {
+          controller.add(networkResult);
+          await _safeCache(key, networkResult.data);
+          await controller.close();
+          return;
+        }
+
+        logger.i(
+          '_NetworkPreferablyAlgorithmStream: Network action failed for key "$key", trying cache',
+        );
+
+        final cacheResult = await _storage.get(
+          key,
+          expirationDuration: expirationDuration,
+        );
+
+        if (cacheResult.isOk) {
+          controller.add(cacheResult);
         } else {
           controller.add(networkResult);
         }
+        await controller.close();
+      } catch (e, s) {
+        controller.add(Result.error(error: CacheStorageUndefinedFailure(e, s)));
+      } finally {
+        if (!controller.isClosed) {
+          await controller.close();
+        }
       }
-    } catch (e, s) {
-      controller.add(Result.error(error: CacheStorageUndefinedFailure(e, s)));
-    } finally {
-      await controller.close();
-    }
+    };
+    return controller.stream;
   }
 }
 
@@ -187,7 +187,17 @@ class _CacheAndBackgroundUpdateAlgorithm<T>
   }) {
     final controller = StreamController<Result<T>>();
 
-    _performOperation(controller, key, expirationDuration, action);
+    controller.onListen = () async {
+      try {
+        await _performOperation(controller, key, expirationDuration, action);
+      } catch (e, s) {
+        controller.add(Result.error(error: CacheStorageUndefinedFailure(e, s)));
+      } finally {
+        if (!controller.isClosed) {
+          await controller.close();
+        }
+      }
+    };
 
     return controller.stream;
   }
@@ -206,18 +216,21 @@ class _CacheAndBackgroundUpdateAlgorithm<T>
     if (cachedData.isOk) {
       controller.add(cachedData);
 
-      unawaited(
-        _backgroundUpdateFuture(action, key).then((result) {
-          controller
-            ..add(result)
-            ..close();
-        }),
-      );
+      await _backgroundFetchAndEmit(controller, action, key);
     } else {
-      final networkResult = await _backgroundUpdateFuture(action, key);
-      controller.add(networkResult);
-      await controller.close();
+      await _backgroundFetchAndEmit(controller, action, key);
     }
+
+    await controller.close();
+  }
+
+  Future<void> _backgroundFetchAndEmit(
+    StreamController<Result<T>> controller,
+    Future<Result<T>> Function() action,
+    String key,
+  ) async {
+    final networkResult = await _backgroundUpdateFuture(action, key);
+    controller.add(networkResult);
   }
 
   Future<Result<T>> _backgroundUpdateFuture(

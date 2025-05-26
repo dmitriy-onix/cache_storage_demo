@@ -1,6 +1,8 @@
+import 'package:cache_storage_demo/core/arch/data/local/cache/cache_algorithm_factory.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_algorithm.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_algorithm_stream.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_policy.dart';
+import 'package:cache_storage_demo/core/arch/data/local/cache/default_cache_algorithm_factory.dart';
 import 'package:onix_flutter_core_models/onix_flutter_core_models.dart';
 
 abstract class CacheStorage<T> {
@@ -9,19 +11,27 @@ abstract class CacheStorage<T> {
   CacheStorageAlgorithm<T> cachingAlgorithmForPolicy(
     CacheStoragePolicy policy,
   ) {
-    return CacheStorageAlgorithm.fromPolicy(
-      cacheStorage: this,
-      policy: policy,
-    );
+    return createAlgorithmWithFactory(DefaultCacheAlgorithmFactory<T>(policy));
   }
 
   CacheStorageAlgorithmStream<T> cachingAlgorithmForPolicyStream(
     CacheStoragePolicy policy,
   ) {
-    return CacheStorageAlgorithmStream.fromPolicy(
-      cacheStorage: this,
-      policy: policy,
+    return createAlgorithmStreamWithFactory(
+      DefaultCacheAlgorithmFactory<T>(policy),
     );
+  }
+
+  CacheStorageAlgorithm<T> createAlgorithmWithFactory(
+    CacheAlgorithmFactory<T> factory,
+  ) {
+    return factory.createAlgorithm(this);
+  }
+
+  CacheStorageAlgorithmStream<T> createAlgorithmStreamWithFactory(
+    CacheAlgorithmFactory<T> factory,
+  ) {
+    return factory.createStreamAlgorithm(this);
   }
 
   Future<Result<T>> get(

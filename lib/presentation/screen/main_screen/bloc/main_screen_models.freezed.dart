@@ -21,7 +21,6 @@ mixin _$MainScreenEvent {
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() objectBoxCall,
-    required TResult Function(Duration duration) emitObjectBoxStreamResult,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
     required TResult Function() floorCall,
@@ -33,7 +32,6 @@ mixin _$MainScreenEvent {
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? objectBoxCall,
-    TResult? Function(Duration duration)? emitObjectBoxStreamResult,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
@@ -45,7 +43,6 @@ mixin _$MainScreenEvent {
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? objectBoxCall,
-    TResult Function(Duration duration)? emitObjectBoxStreamResult,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
     TResult Function()? floorCall,
@@ -58,8 +55,6 @@ mixin _$MainScreenEvent {
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventEmitObjectBoxStreamResult value)
-        emitObjectBoxStreamResult,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
@@ -71,8 +66,6 @@ mixin _$MainScreenEvent {
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
@@ -84,8 +77,6 @@ mixin _$MainScreenEvent {
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
@@ -157,7 +148,6 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() objectBoxCall,
-    required TResult Function(Duration duration) emitObjectBoxStreamResult,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
     required TResult Function() floorCall,
@@ -172,7 +162,6 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? objectBoxCall,
-    TResult? Function(Duration duration)? emitObjectBoxStreamResult,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
@@ -187,7 +176,6 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? objectBoxCall,
-    TResult Function(Duration duration)? emitObjectBoxStreamResult,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
     TResult Function()? floorCall,
@@ -206,8 +194,6 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventEmitObjectBoxStreamResult value)
-        emitObjectBoxStreamResult,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
@@ -222,8 +208,6 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
@@ -238,8 +222,6 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
@@ -301,7 +283,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() objectBoxCall,
-    required TResult Function(Duration duration) emitObjectBoxStreamResult,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
     required TResult Function() floorCall,
@@ -316,7 +297,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? objectBoxCall,
-    TResult? Function(Duration duration)? emitObjectBoxStreamResult,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
@@ -331,7 +311,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? objectBoxCall,
-    TResult Function(Duration duration)? emitObjectBoxStreamResult,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
     TResult Function()? floorCall,
@@ -350,8 +329,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventEmitObjectBoxStreamResult value)
-        emitObjectBoxStreamResult,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
@@ -366,8 +343,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
@@ -382,8 +357,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
@@ -447,7 +420,6 @@ class _$MainScreenEventObjectBoxCallImpl
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() objectBoxCall,
-    required TResult Function(Duration duration) emitObjectBoxStreamResult,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
     required TResult Function() floorCall,
@@ -462,7 +434,6 @@ class _$MainScreenEventObjectBoxCallImpl
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? objectBoxCall,
-    TResult? Function(Duration duration)? emitObjectBoxStreamResult,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
@@ -477,7 +448,6 @@ class _$MainScreenEventObjectBoxCallImpl
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? objectBoxCall,
-    TResult Function(Duration duration)? emitObjectBoxStreamResult,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
     TResult Function()? floorCall,
@@ -496,8 +466,6 @@ class _$MainScreenEventObjectBoxCallImpl
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventEmitObjectBoxStreamResult value)
-        emitObjectBoxStreamResult,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
@@ -512,8 +480,6 @@ class _$MainScreenEventObjectBoxCallImpl
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
@@ -528,8 +494,6 @@ class _$MainScreenEventObjectBoxCallImpl
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
@@ -546,189 +510,6 @@ class _$MainScreenEventObjectBoxCallImpl
 abstract class MainScreenEventObjectBoxCall implements MainScreenEvent {
   const factory MainScreenEventObjectBoxCall() =
       _$MainScreenEventObjectBoxCallImpl;
-}
-
-/// @nodoc
-abstract class _$$MainScreenEventEmitObjectBoxStreamResultImplCopyWith<$Res> {
-  factory _$$MainScreenEventEmitObjectBoxStreamResultImplCopyWith(
-          _$MainScreenEventEmitObjectBoxStreamResultImpl value,
-          $Res Function(_$MainScreenEventEmitObjectBoxStreamResultImpl) then) =
-      __$$MainScreenEventEmitObjectBoxStreamResultImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Duration duration});
-}
-
-/// @nodoc
-class __$$MainScreenEventEmitObjectBoxStreamResultImplCopyWithImpl<$Res>
-    extends _$MainScreenEventCopyWithImpl<$Res,
-        _$MainScreenEventEmitObjectBoxStreamResultImpl>
-    implements _$$MainScreenEventEmitObjectBoxStreamResultImplCopyWith<$Res> {
-  __$$MainScreenEventEmitObjectBoxStreamResultImplCopyWithImpl(
-      _$MainScreenEventEmitObjectBoxStreamResultImpl _value,
-      $Res Function(_$MainScreenEventEmitObjectBoxStreamResultImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? duration = null,
-  }) {
-    return _then(_$MainScreenEventEmitObjectBoxStreamResultImpl(
-      null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as Duration,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$MainScreenEventEmitObjectBoxStreamResultImpl
-    implements MainScreenEventEmitObjectBoxStreamResult {
-  const _$MainScreenEventEmitObjectBoxStreamResultImpl(this.duration);
-
-  @override
-  final Duration duration;
-
-  @override
-  String toString() {
-    return 'MainScreenEvent.emitObjectBoxStreamResult(duration: $duration)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MainScreenEventEmitObjectBoxStreamResultImpl &&
-            (identical(other.duration, duration) ||
-                other.duration == duration));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, duration);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MainScreenEventEmitObjectBoxStreamResultImplCopyWith<
-          _$MainScreenEventEmitObjectBoxStreamResultImpl>
-      get copyWith =>
-          __$$MainScreenEventEmitObjectBoxStreamResultImplCopyWithImpl<
-              _$MainScreenEventEmitObjectBoxStreamResultImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
-    required TResult Function() hiveCall,
-    required TResult Function() objectBoxCall,
-    required TResult Function(Duration duration) emitObjectBoxStreamResult,
-    required TResult Function() sembastCall,
-    required TResult Function() driftCall,
-    required TResult Function() floorCall,
-    required TResult Function() realmCall,
-  }) {
-    return emitObjectBoxStreamResult(duration);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
-    TResult? Function()? hiveCall,
-    TResult? Function()? objectBoxCall,
-    TResult? Function(Duration duration)? emitObjectBoxStreamResult,
-    TResult? Function()? sembastCall,
-    TResult? Function()? driftCall,
-    TResult? Function()? floorCall,
-    TResult? Function()? realmCall,
-  }) {
-    return emitObjectBoxStreamResult?.call(duration);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
-    TResult Function()? hiveCall,
-    TResult Function()? objectBoxCall,
-    TResult Function(Duration duration)? emitObjectBoxStreamResult,
-    TResult Function()? sembastCall,
-    TResult Function()? driftCall,
-    TResult Function()? floorCall,
-    TResult Function()? realmCall,
-    required TResult orElse(),
-  }) {
-    if (emitObjectBoxStreamResult != null) {
-      return emitObjectBoxStreamResult(duration);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
-    required TResult Function(MainScreenEventHiveCall value) hiveCall,
-    required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventEmitObjectBoxStreamResult value)
-        emitObjectBoxStreamResult,
-    required TResult Function(MainScreenEventSembastCall value) sembastCall,
-    required TResult Function(MainScreenEventDriftCall value) driftCall,
-    required TResult Function(MainScreenEventFloorCall value) floorCall,
-    required TResult Function(MainScreenEventRealmCall value) realmCall,
-  }) {
-    return emitObjectBoxStreamResult(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
-    TResult? Function(MainScreenEventHiveCall value)? hiveCall,
-    TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
-    TResult? Function(MainScreenEventSembastCall value)? sembastCall,
-    TResult? Function(MainScreenEventDriftCall value)? driftCall,
-    TResult? Function(MainScreenEventFloorCall value)? floorCall,
-    TResult? Function(MainScreenEventRealmCall value)? realmCall,
-  }) {
-    return emitObjectBoxStreamResult?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
-    TResult Function(MainScreenEventHiveCall value)? hiveCall,
-    TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
-    TResult Function(MainScreenEventSembastCall value)? sembastCall,
-    TResult Function(MainScreenEventDriftCall value)? driftCall,
-    TResult Function(MainScreenEventFloorCall value)? floorCall,
-    TResult Function(MainScreenEventRealmCall value)? realmCall,
-    required TResult orElse(),
-  }) {
-    if (emitObjectBoxStreamResult != null) {
-      return emitObjectBoxStreamResult(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class MainScreenEventEmitObjectBoxStreamResult
-    implements MainScreenEvent {
-  const factory MainScreenEventEmitObjectBoxStreamResult(
-      final Duration duration) = _$MainScreenEventEmitObjectBoxStreamResultImpl;
-
-  Duration get duration;
-  @JsonKey(ignore: true)
-  _$$MainScreenEventEmitObjectBoxStreamResultImplCopyWith<
-          _$MainScreenEventEmitObjectBoxStreamResultImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -776,7 +557,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() objectBoxCall,
-    required TResult Function(Duration duration) emitObjectBoxStreamResult,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
     required TResult Function() floorCall,
@@ -791,7 +571,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? objectBoxCall,
-    TResult? Function(Duration duration)? emitObjectBoxStreamResult,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
@@ -806,7 +585,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? objectBoxCall,
-    TResult Function(Duration duration)? emitObjectBoxStreamResult,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
     TResult Function()? floorCall,
@@ -825,8 +603,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventEmitObjectBoxStreamResult value)
-        emitObjectBoxStreamResult,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
@@ -841,8 +617,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
@@ -857,8 +631,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
@@ -920,7 +692,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() objectBoxCall,
-    required TResult Function(Duration duration) emitObjectBoxStreamResult,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
     required TResult Function() floorCall,
@@ -935,7 +706,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? objectBoxCall,
-    TResult? Function(Duration duration)? emitObjectBoxStreamResult,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
@@ -950,7 +720,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? objectBoxCall,
-    TResult Function(Duration duration)? emitObjectBoxStreamResult,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
     TResult Function()? floorCall,
@@ -969,8 +738,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventEmitObjectBoxStreamResult value)
-        emitObjectBoxStreamResult,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
@@ -985,8 +752,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
@@ -1001,8 +766,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
@@ -1064,7 +827,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() objectBoxCall,
-    required TResult Function(Duration duration) emitObjectBoxStreamResult,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
     required TResult Function() floorCall,
@@ -1079,7 +841,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? objectBoxCall,
-    TResult? Function(Duration duration)? emitObjectBoxStreamResult,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
@@ -1094,7 +855,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? objectBoxCall,
-    TResult Function(Duration duration)? emitObjectBoxStreamResult,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
     TResult Function()? floorCall,
@@ -1113,8 +873,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventEmitObjectBoxStreamResult value)
-        emitObjectBoxStreamResult,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
@@ -1129,8 +887,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
@@ -1145,8 +901,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
@@ -1208,7 +962,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() objectBoxCall,
-    required TResult Function(Duration duration) emitObjectBoxStreamResult,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
     required TResult Function() floorCall,
@@ -1223,7 +976,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? objectBoxCall,
-    TResult? Function(Duration duration)? emitObjectBoxStreamResult,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
@@ -1238,7 +990,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? objectBoxCall,
-    TResult Function(Duration duration)? emitObjectBoxStreamResult,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
     TResult Function()? floorCall,
@@ -1257,8 +1008,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventEmitObjectBoxStreamResult value)
-        emitObjectBoxStreamResult,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
@@ -1273,8 +1022,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
@@ -1289,8 +1036,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventEmitObjectBoxStreamResult value)?
-        emitObjectBoxStreamResult,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,

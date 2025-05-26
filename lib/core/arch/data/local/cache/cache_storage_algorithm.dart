@@ -24,7 +24,7 @@ abstract class CacheStorageAlgorithm<T> {
         CacheStoragePolicy.cacheOnly =>
           _CacheOnlyAlgorithm(storage: cacheStorage),
         CacheStoragePolicy.cacheAndBackgroundUpdate =>
-            _CacheAndBackgroundUpdateAlgorithm(storage: cacheStorage),
+          _CacheAndBackgroundUpdateAlgorithm(storage: cacheStorage),
       };
 
   Future<Result<T>> execute(

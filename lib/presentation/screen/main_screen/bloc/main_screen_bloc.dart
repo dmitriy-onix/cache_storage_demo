@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_policy.dart';
 import 'package:cache_storage_demo/core/arch/logger/app_logger_impl.dart';
@@ -22,8 +23,10 @@ class MainScreenBloc
   MainScreenBloc() : super(const MainScreenState()) {
     on<MainScreenEventHiveCall>(_onHiveCall);
     on<MainScreenEventIsarCall>(_onIsarCall);
-    on<MainScreenEventObjectBoxCall>(_onObjectBoxCall);
-    on<MainScreenEventEmitObjectBoxStreamResult>(_onObjectBoxStreamResult);
+    on<MainScreenEventObjectBoxCall>(
+      _onObjectBoxCall,
+      transformer: restartable(),
+    );
     on<MainScreenEventSembastCall>(_onSembastCall);
     on<MainScreenEventDriftCall>(_onDriftCall);
     on<MainScreenEventFloorCall>(_onFloorCall);
@@ -103,8 +106,6 @@ class MainScreenBloc
     emit(state.copyWith(sembast: _formatTimeDiff(timeDiff)));
   }
 
-  StreamSubscription<Result<ProductEntity>>? _streamSubscription;
-
   Future<void> _onObjectBoxCall(
     MainScreenEventObjectBoxCall event,
     Emitter<MainScreenState> emit,
@@ -120,11 +121,20 @@ class MainScreenBloc
           expirationDuration: CacheStorageConsts.testValueExpirationDuration,
         );
 
-    _streamSubscription = stream.listen((data) {
-      final duration  = stopWatch.elapsed;
-      logger.i('objectBox data: ${data.data}, call time: $duration');
-      add(MainScreenEvent.emitObjectBoxStreamResult(duration));
-    });
+    await emit.forEach<Result<ProductEntity>>(
+      stream,
+      onData: (resultData) {
+        final duration = stopWatch.elapsed;
+        logger.i('objectBox data: ${resultData.data}, call time: $duration');
+        return state.copyWith(objectBox: _formatTimeDiff(duration));
+      },
+    );
+
+    logger.f('stream completed and closed');
+
+    if (stopWatch.isRunning) {
+      stopWatch.stop();
+    }
 
     /*final startTime = DateTime.now();
 
@@ -136,14 +146,6 @@ class MainScreenBloc
     logger.i('objectBox data: ${data.data}, call time: $timeDiff');
 
     emit(state.copyWith(objectBox: _formatTimeDiff(timeDiff)));*/
-  }
-
-  Future<void> _onObjectBoxStreamResult(
-    MainScreenEventEmitObjectBoxStreamResult event,
-    Emitter<MainScreenState> emit,
-  ) async {
-    final duration = event.duration;
-    emit(state.copyWith(objectBox: _formatTimeDiff(duration)));
   }
 
   Future<void> _onIsarCall(
@@ -208,11 +210,5 @@ class MainScreenBloc
 
   String _formatTimeDiff(Duration diff) {
     return '${diff.inSeconds}sec, ${diff.inMilliseconds}ms, ${diff.inMicroseconds}microsec';
-  }
-
-  @override
-  void dispose() {
-    _streamSubscription?.cancel();
-    super.dispose();
   }
 }

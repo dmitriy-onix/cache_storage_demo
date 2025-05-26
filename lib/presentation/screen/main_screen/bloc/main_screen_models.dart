@@ -10,9 +10,6 @@ sealed class MainScreenEvent with _$MainScreenEvent {
 
   const factory MainScreenEvent.objectBoxCall() = MainScreenEventObjectBoxCall;
 
-  const factory MainScreenEvent.emitObjectBoxStreamResult(Duration duration) =
-      MainScreenEventEmitObjectBoxStreamResult;
-
   const factory MainScreenEvent.sembastCall() = MainScreenEventSembastCall;
 
   const factory MainScreenEvent.driftCall() = MainScreenEventDriftCall;
