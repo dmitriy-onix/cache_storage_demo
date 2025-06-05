@@ -38,6 +38,12 @@ class _MainScreenState extends BaseState<MainScreenState, MainScreenBloc,
                 ),
                 const SizedBox(height: 20),
                 DBInfo(
+                  onPressed: () => _onHiveNoJson(context),
+                  title: 'Hive CE no JSON',
+                  timeInfo: state.hiveNoJson,
+                ),
+                const SizedBox(height: 20),
+                DBInfo(
                   onPressed: () => _onObjectBox(context),
                   title: 'ObjectBox',
                   timeInfo: state.objectBox,
@@ -112,5 +118,9 @@ class _MainScreenState extends BaseState<MainScreenState, MainScreenBloc,
 
   void _onRealm(BuildContext context) {
     blocOf(context).add(const MainScreenEvent.realmCall());
+  }
+
+  void _onHiveNoJson(BuildContext context) {
+    blocOf(context).add(const MainScreenEvent.hiveNoJsonCall());
   }
 }

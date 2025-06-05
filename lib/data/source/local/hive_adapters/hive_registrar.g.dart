@@ -3,10 +3,12 @@
 // Check in to version control
 
 import 'package:hive_ce/hive.dart';
-import 'package:cache_storage_demo/data/source/local/hive_cache/hive_cache_record.dart';
+import 'package:cache_storage_demo/data/source/local/hive_adapters/hive_adapters.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
     registerAdapter(HiveCacheRecordAdapter());
+    registerAdapter(HiveMetaRecordAdapter());
+    registerAdapter(ProductHOAdapter());
   }
 }

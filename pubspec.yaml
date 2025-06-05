@@ -40,8 +40,6 @@ dependencies:
   path_provider: ^2.1.5
   shared_preferences: ^2.5.3
 
-#  hive: ^2.2.3
-#  hive_flutter: ^1.1.0
   hive_ce: ^2.11.2
   hive_ce_flutter: ^2.3.1
   objectbox: 4.1.0
@@ -52,8 +50,6 @@ dependencies:
   drift: ^2.23.1
   drift_flutter: ^0.2.3
   floor: ^1.4.1
-#  isar: ^3.1.0+1
-#  isar_flutter_libs: ^3.1.0+1
 
 dev_dependencies:
   flutter_test:
@@ -67,8 +63,6 @@ dev_dependencies:
   envied_generator: ^1.1.1
   bloc_test: ^9.1.7
   flutter_launcher_icons: ^0.14.3
-#  isar_generator: ^3.1.0+1
-#  hive_generator: ^2.0.1
   hive_ce_generator: ^1.8.1
   objectbox_generator: 4.1.0
   floor_generator: ^1.4.1

@@ -1,6 +1,6 @@
 import 'package:cache_storage_demo/core/arch/logger/app_logger_impl.dart';
 import 'package:cache_storage_demo/core/di/injection.dart';
-import 'package:cache_storage_demo/data/source/local/hive_cache/hive_cache_record.dart';
+import 'package:cache_storage_demo/data/source/local/hive_adapters/hive_registrar.g.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 
@@ -20,7 +20,7 @@ class Initialization {
   }
 
   Future<void> _initializeHiveDatabase() async {
-    Hive.registerAdapter(HiveCacheRecordAdapter());
+    Hive.registerAdapters();
     await Hive.initFlutter();
   }
 }

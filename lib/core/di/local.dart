@@ -2,6 +2,7 @@ import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_all.
 import 'package:cache_storage_demo/data/source/local/cache/product_drift_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_floor_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_hive_cache_storage.dart';
+import 'package:cache_storage_demo/data/source/local/cache/product_hive_no_json_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_object_box_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_realm_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_sembast_cache_storage.dart';
@@ -70,7 +71,14 @@ Future<void> registerLocal(GetIt getIt) async {
       () => PreferencesSourceImpl(getIt.get<SharedPreferencesStorage>()),
     )
     // ..registerSingleton(ProductIsarCacheStorage(isar: getIt.get<Isar>()))
-    ..registerSingleton(ProductHiveCacheStorage(hive: Hive));
+    ..registerSingleton(
+      ProductHiveCacheStorage(hive: Hive),
+      dispose: (d) => d.dispose(),
+    )
+    ..registerSingleton(
+      ProductHiveCacheStorageNoJson(hive: Hive),
+      dispose: (d) => d.dispose(),
+    );
 }
 
 // class _IsarClientModule extends IsarClientModule {}

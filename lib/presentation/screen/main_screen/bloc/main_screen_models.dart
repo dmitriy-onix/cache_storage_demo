@@ -8,6 +8,8 @@ sealed class MainScreenEvent with _$MainScreenEvent {
 
   const factory MainScreenEvent.hiveCall() = MainScreenEventHiveCall;
 
+  const factory MainScreenEvent.hiveNoJsonCall() = MainScreenEventHiveNoJsonCall;
+
   const factory MainScreenEvent.objectBoxCall() = MainScreenEventObjectBoxCall;
 
   const factory MainScreenEvent.sembastCall() = MainScreenEventSembastCall;
@@ -24,6 +26,7 @@ class MainScreenState with _$MainScreenState {
   const factory MainScreenState({
     @Default('') String isar,
     @Default('') String hive,
+    @Default('') String hiveNoJson,
     @Default('') String objectBox,
     @Default('') String sembast,
     @Default('') String drift,

@@ -4,13 +4,16 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_policy.dart';
 import 'package:cache_storage_demo/core/arch/logger/app_logger_impl.dart';
+import 'package:cache_storage_demo/data/mapper/hive_db_mapper.dart';
 import 'package:cache_storage_demo/data/source/local/cache/cache_storage_consts.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_drift_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_floor_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_hive_cache_storage.dart';
+import 'package:cache_storage_demo/data/source/local/cache/product_hive_no_json_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_object_box_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_realm_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_sembast_cache_storage.dart';
+import 'package:cache_storage_demo/domain/entity/cache/product_ho.dart';
 import 'package:cache_storage_demo/domain/entity/product_entity.dart';
 import 'package:cache_storage_demo/presentation/screen/main_screen/bloc/main_screen_imports.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +25,7 @@ class MainScreenBloc
     extends BaseBloc<MainScreenEvent, MainScreenState, MainScreenSR> {
   MainScreenBloc() : super(const MainScreenState()) {
     on<MainScreenEventHiveCall>(_onHiveCall);
+    on<MainScreenEventHiveNoJsonCall>(_onHiveNoJsonCall);
     on<MainScreenEventIsarCall>(_onIsarCall);
     on<MainScreenEventObjectBoxCall>(
       _onObjectBoxCall,
@@ -34,6 +38,7 @@ class MainScreenBloc
   }
 
   final _hiveCacheStorage = GetIt.I.get<ProductHiveCacheStorage>();
+  final _hiveNoJsonCacheStorage = GetIt.I.get<ProductHiveCacheStorageNoJson>();
   final _objectBoxCacheStorage = GetIt.I.get<ProductObjectBoxCacheStorage>();
   final _sembastCacheStorage = GetIt.I.get<ProductSembastCacheStorage>();
   final _driftCacheStorage = GetIt.I.get<ProductDriftCacheStorage>();
@@ -41,6 +46,8 @@ class MainScreenBloc
   final _realmCacheStorage = GetIt.I.get<ProductRealmCacheStorage>();
 
   // final _isarCacheStorage = GetIt.I.get<ProductIsarCacheStorage>();
+
+  final _hiveMappers = HiveDbMappers();
 
   Future<void> _onRealmCall(
     MainScreenEventRealmCall event,
@@ -180,6 +187,38 @@ class MainScreenBloc
     logger.i('hive data: ${data.data}, call time: $timeDiff');
 
     emit(state.copyWith(hive: _formatTimeDiff(timeDiff)));
+  }
+
+  Future<void> _onHiveNoJsonCall(
+    MainScreenEventHiveNoJsonCall event,
+    Emitter<MainScreenState> emit,
+  ) async {
+    final startTime = DateTime.now();
+
+    Future<Result<ProductHO>> getProductAction() async {
+      // Simulate a network call
+      await Future.delayed(const Duration(seconds: 2));
+      final data = ProductEntity(
+        id: 'product-1',
+        name: 'Product 1',
+        price: 10,
+      );
+
+      final result = _hiveMappers.mapProductEntityToDb(data);
+
+      return Result.ok(result);
+    }
+
+    final data = await _onCallDB(_hiveNoJsonCacheStorage, getProductAction);
+
+    final result = _hiveMappers.mapProductDbToEntity(data.data);
+
+    final endTime = DateTime.now();
+    final timeDiff = endTime.difference(startTime);
+
+    logger.i('hive data: $result, call time: $timeDiff');
+
+    emit(state.copyWith(hiveNoJson: _formatTimeDiff(timeDiff)));
   }
 
   Future<Result<ProductEntity>> _getProductAction() async {

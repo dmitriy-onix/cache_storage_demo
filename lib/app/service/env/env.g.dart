@@ -11,23 +11,23 @@ part of 'env.dart';
 // generated_from: .env
 final class _Env {
   static const List<int> _enviedkeyapiKey1 = <int>[
-    1361839289,
-    3062598243,
-    1029289382,
-    1224685882,
-    3467861656,
-    2990287610,
-    4008447068,
+    1692756778,
+    1249809046,
+    3829238526,
+    3474978292,
+    2897073806,
+    2647841490,
+    1613129591,
   ];
 
   static const List<int> _envieddataapiKey1 = <int>[
-    1361839352,
-    3062598195,
-    1029289455,
-    1224685937,
-    3467861725,
-    2990287523,
-    4008447085,
+    1692756843,
+    1249809094,
+    3829238455,
+    3474978239,
+    2897073867,
+    2647841419,
+    1613129542,
   ];
 
   static final String apiKey1 = String.fromCharCodes(List<int>.generate(
@@ -37,23 +37,23 @@ final class _Env {
   ).map((int i) => _envieddataapiKey1[i] ^ _enviedkeyapiKey1[i]));
 
   static const List<int> _enviedkeyapiKey2 = <int>[
-    3857596325,
-    453168779,
-    3853429996,
-    2213521117,
-    2725465344,
-    2227947651,
-    1063328650,
+    1092854079,
+    68534037,
+    1284387628,
+    3537364685,
+    1843475055,
+    471897241,
+    608635240,
   ];
 
   static const List<int> _envieddataapiKey2 = <int>[
-    3857596388,
-    453168859,
-    3853429925,
-    2213521046,
-    2725465413,
-    2227947738,
-    1063328696,
+    1092854142,
+    68534085,
+    1284387685,
+    3537364614,
+    1843474986,
+    471897280,
+    608635226,
   ];
 
   static final String apiKey2 = String.fromCharCodes(List<int>.generate(

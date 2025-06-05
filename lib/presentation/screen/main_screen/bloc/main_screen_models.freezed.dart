@@ -20,6 +20,7 @@ mixin _$MainScreenEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
@@ -31,6 +32,7 @@ mixin _$MainScreenEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
@@ -42,6 +44,7 @@ mixin _$MainScreenEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
@@ -54,6 +57,8 @@ mixin _$MainScreenEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
@@ -65,6 +70,7 @@ mixin _$MainScreenEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
@@ -76,6 +82,7 @@ mixin _$MainScreenEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
@@ -147,6 +154,7 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
   TResult when<TResult extends Object?>({
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
@@ -161,6 +169,7 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
@@ -175,6 +184,7 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
@@ -193,6 +203,8 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
   TResult map<TResult extends Object?>({
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
@@ -207,6 +219,7 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
@@ -221,6 +234,7 @@ class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
@@ -282,6 +296,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   TResult when<TResult extends Object?>({
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
@@ -296,6 +311,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
@@ -310,6 +326,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
@@ -328,6 +345,8 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   TResult map<TResult extends Object?>({
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
@@ -342,6 +361,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
@@ -356,6 +376,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
@@ -372,6 +393,151 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
 
 abstract class MainScreenEventHiveCall implements MainScreenEvent {
   const factory MainScreenEventHiveCall() = _$MainScreenEventHiveCallImpl;
+}
+
+/// @nodoc
+abstract class _$$MainScreenEventHiveNoJsonCallImplCopyWith<$Res> {
+  factory _$$MainScreenEventHiveNoJsonCallImplCopyWith(
+          _$MainScreenEventHiveNoJsonCallImpl value,
+          $Res Function(_$MainScreenEventHiveNoJsonCallImpl) then) =
+      __$$MainScreenEventHiveNoJsonCallImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MainScreenEventHiveNoJsonCallImplCopyWithImpl<$Res>
+    extends _$MainScreenEventCopyWithImpl<$Res,
+        _$MainScreenEventHiveNoJsonCallImpl>
+    implements _$$MainScreenEventHiveNoJsonCallImplCopyWith<$Res> {
+  __$$MainScreenEventHiveNoJsonCallImplCopyWithImpl(
+      _$MainScreenEventHiveNoJsonCallImpl _value,
+      $Res Function(_$MainScreenEventHiveNoJsonCallImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MainScreenEventHiveNoJsonCallImpl
+    implements MainScreenEventHiveNoJsonCall {
+  const _$MainScreenEventHiveNoJsonCallImpl();
+
+  @override
+  String toString() {
+    return 'MainScreenEvent.hiveNoJsonCall()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MainScreenEventHiveNoJsonCallImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() isarCall,
+    required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
+    required TResult Function() objectBoxCall,
+    required TResult Function() sembastCall,
+    required TResult Function() driftCall,
+    required TResult Function() floorCall,
+    required TResult Function() realmCall,
+  }) {
+    return hiveNoJsonCall();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? isarCall,
+    TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
+    TResult? Function()? objectBoxCall,
+    TResult? Function()? sembastCall,
+    TResult? Function()? driftCall,
+    TResult? Function()? floorCall,
+    TResult? Function()? realmCall,
+  }) {
+    return hiveNoJsonCall?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? isarCall,
+    TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
+    TResult Function()? objectBoxCall,
+    TResult Function()? sembastCall,
+    TResult Function()? driftCall,
+    TResult Function()? floorCall,
+    TResult Function()? realmCall,
+    required TResult orElse(),
+  }) {
+    if (hiveNoJsonCall != null) {
+      return hiveNoJsonCall();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MainScreenEventIsarCall value) isarCall,
+    required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
+    required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
+    required TResult Function(MainScreenEventSembastCall value) sembastCall,
+    required TResult Function(MainScreenEventDriftCall value) driftCall,
+    required TResult Function(MainScreenEventFloorCall value) floorCall,
+    required TResult Function(MainScreenEventRealmCall value) realmCall,
+  }) {
+    return hiveNoJsonCall(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MainScreenEventIsarCall value)? isarCall,
+    TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
+    TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
+    TResult? Function(MainScreenEventSembastCall value)? sembastCall,
+    TResult? Function(MainScreenEventDriftCall value)? driftCall,
+    TResult? Function(MainScreenEventFloorCall value)? floorCall,
+    TResult? Function(MainScreenEventRealmCall value)? realmCall,
+  }) {
+    return hiveNoJsonCall?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MainScreenEventIsarCall value)? isarCall,
+    TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
+    TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
+    TResult Function(MainScreenEventSembastCall value)? sembastCall,
+    TResult Function(MainScreenEventDriftCall value)? driftCall,
+    TResult Function(MainScreenEventFloorCall value)? floorCall,
+    TResult Function(MainScreenEventRealmCall value)? realmCall,
+    required TResult orElse(),
+  }) {
+    if (hiveNoJsonCall != null) {
+      return hiveNoJsonCall(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MainScreenEventHiveNoJsonCall implements MainScreenEvent {
+  const factory MainScreenEventHiveNoJsonCall() =
+      _$MainScreenEventHiveNoJsonCallImpl;
 }
 
 /// @nodoc
@@ -419,6 +585,7 @@ class _$MainScreenEventObjectBoxCallImpl
   TResult when<TResult extends Object?>({
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
@@ -433,6 +600,7 @@ class _$MainScreenEventObjectBoxCallImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
@@ -447,6 +615,7 @@ class _$MainScreenEventObjectBoxCallImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
@@ -465,6 +634,8 @@ class _$MainScreenEventObjectBoxCallImpl
   TResult map<TResult extends Object?>({
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
@@ -479,6 +650,7 @@ class _$MainScreenEventObjectBoxCallImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
@@ -493,6 +665,7 @@ class _$MainScreenEventObjectBoxCallImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
@@ -556,6 +729,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   TResult when<TResult extends Object?>({
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
@@ -570,6 +744,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
@@ -584,6 +759,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
@@ -602,6 +778,8 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   TResult map<TResult extends Object?>({
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
@@ -616,6 +794,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
@@ -630,6 +809,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
@@ -691,6 +871,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   TResult when<TResult extends Object?>({
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
@@ -705,6 +886,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
@@ -719,6 +901,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
@@ -737,6 +920,8 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   TResult map<TResult extends Object?>({
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
@@ -751,6 +936,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
@@ -765,6 +951,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
@@ -826,6 +1013,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   TResult when<TResult extends Object?>({
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
@@ -840,6 +1028,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
@@ -854,6 +1043,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
@@ -872,6 +1062,8 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   TResult map<TResult extends Object?>({
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
@@ -886,6 +1078,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
@@ -900,6 +1093,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
@@ -961,6 +1155,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   TResult when<TResult extends Object?>({
     required TResult Function() isarCall,
     required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
     required TResult Function() sembastCall,
     required TResult Function() driftCall,
@@ -975,6 +1170,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
     TResult? Function()? sembastCall,
     TResult? Function()? driftCall,
@@ -989,6 +1185,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? isarCall,
     TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
     TResult Function()? sembastCall,
     TResult Function()? driftCall,
@@ -1007,6 +1204,8 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   TResult map<TResult extends Object?>({
     required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
     required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
     required TResult Function(MainScreenEventSembastCall value) sembastCall,
     required TResult Function(MainScreenEventDriftCall value) driftCall,
@@ -1021,6 +1220,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult? Function(MainScreenEventSembastCall value)? sembastCall,
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
@@ -1035,6 +1235,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
     TResult Function(MainScreenEventSembastCall value)? sembastCall,
     TResult Function(MainScreenEventDriftCall value)? driftCall,
@@ -1057,6 +1258,7 @@ abstract class MainScreenEventRealmCall implements MainScreenEvent {
 mixin _$MainScreenState {
   String get isar => throw _privateConstructorUsedError;
   String get hive => throw _privateConstructorUsedError;
+  String get hiveNoJson => throw _privateConstructorUsedError;
   String get objectBox => throw _privateConstructorUsedError;
   String get sembast => throw _privateConstructorUsedError;
   String get drift => throw _privateConstructorUsedError;
@@ -1077,6 +1279,7 @@ abstract class $MainScreenStateCopyWith<$Res> {
   $Res call(
       {String isar,
       String hive,
+      String hiveNoJson,
       String objectBox,
       String sembast,
       String drift,
@@ -1099,6 +1302,7 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
   $Res call({
     Object? isar = null,
     Object? hive = null,
+    Object? hiveNoJson = null,
     Object? objectBox = null,
     Object? sembast = null,
     Object? drift = null,
@@ -1113,6 +1317,10 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
       hive: null == hive
           ? _value.hive
           : hive // ignore: cast_nullable_to_non_nullable
+              as String,
+      hiveNoJson: null == hiveNoJson
+          ? _value.hiveNoJson
+          : hiveNoJson // ignore: cast_nullable_to_non_nullable
               as String,
       objectBox: null == objectBox
           ? _value.objectBox
@@ -1149,6 +1357,7 @@ abstract class _$$MainScreenStateImplCopyWith<$Res>
   $Res call(
       {String isar,
       String hive,
+      String hiveNoJson,
       String objectBox,
       String sembast,
       String drift,
@@ -1169,6 +1378,7 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isar = null,
     Object? hive = null,
+    Object? hiveNoJson = null,
     Object? objectBox = null,
     Object? sembast = null,
     Object? drift = null,
@@ -1183,6 +1393,10 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
       hive: null == hive
           ? _value.hive
           : hive // ignore: cast_nullable_to_non_nullable
+              as String,
+      hiveNoJson: null == hiveNoJson
+          ? _value.hiveNoJson
+          : hiveNoJson // ignore: cast_nullable_to_non_nullable
               as String,
       objectBox: null == objectBox
           ? _value.objectBox
@@ -1214,6 +1428,7 @@ class _$MainScreenStateImpl implements _MainScreenState {
   const _$MainScreenStateImpl(
       {this.isar = '',
       this.hive = '',
+      this.hiveNoJson = '',
       this.objectBox = '',
       this.sembast = '',
       this.drift = '',
@@ -1226,6 +1441,9 @@ class _$MainScreenStateImpl implements _MainScreenState {
   @override
   @JsonKey()
   final String hive;
+  @override
+  @JsonKey()
+  final String hiveNoJson;
   @override
   @JsonKey()
   final String objectBox;
@@ -1244,7 +1462,7 @@ class _$MainScreenStateImpl implements _MainScreenState {
 
   @override
   String toString() {
-    return 'MainScreenState(isar: $isar, hive: $hive, objectBox: $objectBox, sembast: $sembast, drift: $drift, floor: $floor, realm: $realm)';
+    return 'MainScreenState(isar: $isar, hive: $hive, hiveNoJson: $hiveNoJson, objectBox: $objectBox, sembast: $sembast, drift: $drift, floor: $floor, realm: $realm)';
   }
 
   @override
@@ -1254,6 +1472,8 @@ class _$MainScreenStateImpl implements _MainScreenState {
             other is _$MainScreenStateImpl &&
             (identical(other.isar, isar) || other.isar == isar) &&
             (identical(other.hive, hive) || other.hive == hive) &&
+            (identical(other.hiveNoJson, hiveNoJson) ||
+                other.hiveNoJson == hiveNoJson) &&
             (identical(other.objectBox, objectBox) ||
                 other.objectBox == objectBox) &&
             (identical(other.sembast, sembast) || other.sembast == sembast) &&
@@ -1263,8 +1483,8 @@ class _$MainScreenStateImpl implements _MainScreenState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, isar, hive, objectBox, sembast, drift, floor, realm);
+  int get hashCode => Object.hash(runtimeType, isar, hive, hiveNoJson,
+      objectBox, sembast, drift, floor, realm);
 
   @JsonKey(ignore: true)
   @override
@@ -1278,6 +1498,7 @@ abstract class _MainScreenState implements MainScreenState {
   const factory _MainScreenState(
       {final String isar,
       final String hive,
+      final String hiveNoJson,
       final String objectBox,
       final String sembast,
       final String drift,
@@ -1288,6 +1509,8 @@ abstract class _MainScreenState implements MainScreenState {
   String get isar;
   @override
   String get hive;
+  @override
+  String get hiveNoJson;
   @override
   String get objectBox;
   @override

@@ -14,4 +14,4 @@ key.properties
       
 /app/signing/signing.properties
 /fastlane/.env*
-      
+/app/.cxx/

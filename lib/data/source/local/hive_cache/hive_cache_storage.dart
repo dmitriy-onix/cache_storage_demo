@@ -23,12 +23,6 @@ abstract class HiveCacheStorage<T> extends CacheStorage<T> {
 
   Future<Box<HiveCacheRecord>> _getBox() async {
     if (_box == null || !_box!.isOpen) {
-      if (!_hive.isAdapterRegistered(HiveCacheRecordAdapter().typeId)) {
-        _hive.registerAdapter(HiveCacheRecordAdapter());
-        logger.w(
-          'HiveCacheRecordAdapter registered in _getBox for $groupName',
-        );
-      }
       _box = await _hive.openBox<HiveCacheRecord>(groupName);
     }
     return _box!;
@@ -74,7 +68,8 @@ abstract class HiveCacheStorage<T> extends CacheStorage<T> {
     } catch (e, s) {
       await box.delete(key);
       logger.e(
-          'Error decoding Hive cache for key "$key" in group "$groupName": $e');
+        'Error decoding Hive cache for key "$key" in group "$groupName": $e',
+      );
       return Result.error(error: DecodingFailure(e, s));
     }
   }
