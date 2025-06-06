@@ -1,6 +1,7 @@
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_algorithm_factory.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_algorithm.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_algorithm_stream.dart';
+import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_algorithm_value_notifier.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_policy.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/default_cache_algorithm_factory.dart';
 import 'package:onix_flutter_core_models/onix_flutter_core_models.dart';
@@ -32,6 +33,20 @@ abstract class CacheStorage<T> {
     CacheAlgorithmFactory<T> factory,
   ) {
     return factory.createStreamAlgorithm(this);
+  }
+
+  CacheStorageAlgorithmValueNotifier<T> cachingAlgorithmForPolicyValueNotifier(
+    CacheStoragePolicy policy,
+  ) {
+    return createAlgorithmValueNotifierWithFactory(
+      DefaultCacheAlgorithmFactory<T>(policy),
+    );
+  }
+
+  CacheStorageAlgorithmValueNotifier<T> createAlgorithmValueNotifierWithFactory(
+    CacheAlgorithmFactory<T> factory,
+  ) {
+    return factory.createValueNotifierAlgorithm(this);
   }
 
   Future<Result<T>> get(

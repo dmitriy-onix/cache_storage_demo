@@ -2,6 +2,7 @@ import 'package:cache_storage_demo/core/arch/data/local/cache/cache_algorithm_fa
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_algorithm.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_algorithm_stream.dart';
+import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_algorithm_value_notifier.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_policy.dart';
 
 class DefaultCacheAlgorithmFactory<T> implements CacheAlgorithmFactory<T> {
@@ -22,6 +23,16 @@ class DefaultCacheAlgorithmFactory<T> implements CacheAlgorithmFactory<T> {
     CacheStorage<T> storage,
   ) {
     return CacheStorageAlgorithmStream.fromPolicy(
+      cacheStorage: storage,
+      policy: policy,
+    );
+  }
+
+  @override
+  CacheStorageAlgorithmValueNotifier<T> createValueNotifierAlgorithm(
+    CacheStorage<T> storage,
+  ) {
+    return CacheStorageAlgorithmValueNotifier.fromPolicy(
       cacheStorage: storage,
       policy: policy,
     );

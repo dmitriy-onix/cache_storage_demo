@@ -29,9 +29,9 @@ abstract class CacheStorageAlgorithmStream<T> {
     };
   }
 
-  Stream<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Stream<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   });
 
@@ -53,9 +53,9 @@ class _CachePreferablyAlgorithmStream<T>
   const _CachePreferablyAlgorithmStream({required super.storage});
 
   @override
-  Stream<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Stream<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   }) {
     final controller = StreamController<Result<T>>();
@@ -76,7 +76,7 @@ class _CachePreferablyAlgorithmStream<T>
         logger.i(
           '_CachePreferablyAlgorithmStream: Cache miss/error for key "$key", trying network for stream.',
         );
-        final networkResult = await action();
+        final networkResult = await sourceAction();
         controller.add(networkResult);
 
         if (networkResult.isOk) {
@@ -98,9 +98,9 @@ class _CacheOnlyAlgorithmStream<T> extends CacheStorageAlgorithmStream<T> {
   const _CacheOnlyAlgorithmStream({required super.storage});
 
   @override
-  Stream<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Stream<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   }) {
     final controller = StreamController<Result<T>>();
@@ -130,16 +130,16 @@ class _NetworkPreferablyAlgorithmStream<T>
   const _NetworkPreferablyAlgorithmStream({required super.storage});
 
   @override
-  Stream<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Stream<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   }) {
     final controller = StreamController<Result<T>>();
 
     controller.onListen = () async {
       try {
-        final networkResult = await action();
+        final networkResult = await sourceAction();
 
         if (networkResult.isOk) {
           controller.add(networkResult);
@@ -180,16 +180,17 @@ class _CacheAndBackgroundUpdateAlgorithm<T>
   const _CacheAndBackgroundUpdateAlgorithm({required super.storage});
 
   @override
-  Stream<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Stream<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   }) {
     final controller = StreamController<Result<T>>();
 
     controller.onListen = () async {
       try {
-        await _performOperation(controller, key, expirationDuration, action);
+        await _performOperation(
+            controller, key, expirationDuration, sourceAction);
       } catch (e, s) {
         controller.add(Result.error(error: CacheStorageUndefinedFailure(e, s)));
       } finally {
@@ -206,7 +207,7 @@ class _CacheAndBackgroundUpdateAlgorithm<T>
     StreamController<Result<T>> controller,
     String key,
     Duration? expirationDuration,
-    Future<Result<T>> Function() action,
+    Future<Result<T>> Function() sourceAction,
   ) async {
     final cachedData = await _storage.get(
       key,
@@ -216,9 +217,9 @@ class _CacheAndBackgroundUpdateAlgorithm<T>
     if (cachedData.isOk) {
       controller.add(cachedData);
 
-      await _backgroundFetchAndEmit(controller, action, key);
+      await _backgroundFetchAndEmit(controller, sourceAction, key);
     } else {
-      await _backgroundFetchAndEmit(controller, action, key);
+      await _backgroundFetchAndEmit(controller, sourceAction, key);
     }
 
     await controller.close();
@@ -226,19 +227,19 @@ class _CacheAndBackgroundUpdateAlgorithm<T>
 
   Future<void> _backgroundFetchAndEmit(
     StreamController<Result<T>> controller,
-    Future<Result<T>> Function() action,
+    Future<Result<T>> Function() sourceAction,
     String key,
   ) async {
-    final networkResult = await _backgroundUpdateFuture(action, key);
+    final networkResult = await _backgroundUpdateFuture(sourceAction, key);
     controller.add(networkResult);
   }
 
   Future<Result<T>> _backgroundUpdateFuture(
-    Future<Result<T>> Function() action,
+    Future<Result<T>> Function() sourceAction,
     String key,
   ) async {
     try {
-      final freshNetworkResult = await action();
+      final freshNetworkResult = await sourceAction();
 
       if (freshNetworkResult.isOk) {
         await _safeCache(key, freshNetworkResult.data);

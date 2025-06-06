@@ -4,11 +4,10 @@ part 'main_screen_models.freezed.dart';
 
 @freezed
 sealed class MainScreenEvent with _$MainScreenEvent {
-  const factory MainScreenEvent.isarCall() = MainScreenEventIsarCall;
-
   const factory MainScreenEvent.hiveCall() = MainScreenEventHiveCall;
 
-  const factory MainScreenEvent.hiveNoJsonCall() = MainScreenEventHiveNoJsonCall;
+  const factory MainScreenEvent.hiveNoJsonCall() =
+      MainScreenEventHiveNoJsonCall;
 
   const factory MainScreenEvent.objectBoxCall() = MainScreenEventObjectBoxCall;
 
@@ -19,12 +18,13 @@ sealed class MainScreenEvent with _$MainScreenEvent {
   const factory MainScreenEvent.floorCall() = MainScreenEventFloorCall;
 
   const factory MainScreenEvent.realmCall() = MainScreenEventRealmCall;
+
+  const factory MainScreenEvent.realmVNCall() = MainScreenEventRealmVNCall;
 }
 
 @freezed
 class MainScreenState with _$MainScreenState {
   const factory MainScreenState({
-    @Default('') String isar,
     @Default('') String hive,
     @Default('') String hiveNoJson,
     @Default('') String objectBox,
@@ -32,6 +32,7 @@ class MainScreenState with _$MainScreenState {
     @Default('') String drift,
     @Default('') String floor,
     @Default('') String realm,
+    @Default('') String realmVN,
   }) = _MainScreenState;
 }
 

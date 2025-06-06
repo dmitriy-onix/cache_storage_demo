@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MainScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
@@ -26,11 +25,11 @@ mixin _$MainScreenEvent {
     required TResult Function() driftCall,
     required TResult Function() floorCall,
     required TResult Function() realmCall,
+    required TResult Function() realmVNCall,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
@@ -38,11 +37,11 @@ mixin _$MainScreenEvent {
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
     TResult? Function()? realmCall,
+    TResult? Function()? realmVNCall,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
@@ -50,12 +49,12 @@ mixin _$MainScreenEvent {
     TResult Function()? driftCall,
     TResult Function()? floorCall,
     TResult Function()? realmCall,
+    TResult Function()? realmVNCall,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventHiveNoJsonCall value)
         hiveNoJsonCall,
@@ -64,11 +63,11 @@ mixin _$MainScreenEvent {
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
     required TResult Function(MainScreenEventRealmCall value) realmCall,
+    required TResult Function(MainScreenEventRealmVNCall value) realmVNCall,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -76,11 +75,11 @@ mixin _$MainScreenEvent {
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
     TResult? Function(MainScreenEventRealmCall value)? realmCall,
+    TResult? Function(MainScreenEventRealmVNCall value)? realmVNCall,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -88,6 +87,7 @@ mixin _$MainScreenEvent {
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
     TResult Function(MainScreenEventRealmCall value)? realmCall,
+    TResult Function(MainScreenEventRealmVNCall value)? realmVNCall,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,148 +109,6 @@ class _$MainScreenEventCopyWithImpl<$Res, $Val extends MainScreenEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$MainScreenEventIsarCallImplCopyWith<$Res> {
-  factory _$$MainScreenEventIsarCallImplCopyWith(
-          _$MainScreenEventIsarCallImpl value,
-          $Res Function(_$MainScreenEventIsarCallImpl) then) =
-      __$$MainScreenEventIsarCallImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$MainScreenEventIsarCallImplCopyWithImpl<$Res>
-    extends _$MainScreenEventCopyWithImpl<$Res, _$MainScreenEventIsarCallImpl>
-    implements _$$MainScreenEventIsarCallImplCopyWith<$Res> {
-  __$$MainScreenEventIsarCallImplCopyWithImpl(
-      _$MainScreenEventIsarCallImpl _value,
-      $Res Function(_$MainScreenEventIsarCallImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$MainScreenEventIsarCallImpl implements MainScreenEventIsarCall {
-  const _$MainScreenEventIsarCallImpl();
-
-  @override
-  String toString() {
-    return 'MainScreenEvent.isarCall()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MainScreenEventIsarCallImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
-    required TResult Function() hiveCall,
-    required TResult Function() hiveNoJsonCall,
-    required TResult Function() objectBoxCall,
-    required TResult Function() sembastCall,
-    required TResult Function() driftCall,
-    required TResult Function() floorCall,
-    required TResult Function() realmCall,
-  }) {
-    return isarCall();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
-    TResult? Function()? hiveCall,
-    TResult? Function()? hiveNoJsonCall,
-    TResult? Function()? objectBoxCall,
-    TResult? Function()? sembastCall,
-    TResult? Function()? driftCall,
-    TResult? Function()? floorCall,
-    TResult? Function()? realmCall,
-  }) {
-    return isarCall?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
-    TResult Function()? hiveCall,
-    TResult Function()? hiveNoJsonCall,
-    TResult Function()? objectBoxCall,
-    TResult Function()? sembastCall,
-    TResult Function()? driftCall,
-    TResult Function()? floorCall,
-    TResult Function()? realmCall,
-    required TResult orElse(),
-  }) {
-    if (isarCall != null) {
-      return isarCall();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
-    required TResult Function(MainScreenEventHiveCall value) hiveCall,
-    required TResult Function(MainScreenEventHiveNoJsonCall value)
-        hiveNoJsonCall,
-    required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
-    required TResult Function(MainScreenEventSembastCall value) sembastCall,
-    required TResult Function(MainScreenEventDriftCall value) driftCall,
-    required TResult Function(MainScreenEventFloorCall value) floorCall,
-    required TResult Function(MainScreenEventRealmCall value) realmCall,
-  }) {
-    return isarCall(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
-    TResult? Function(MainScreenEventHiveCall value)? hiveCall,
-    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
-    TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult? Function(MainScreenEventSembastCall value)? sembastCall,
-    TResult? Function(MainScreenEventDriftCall value)? driftCall,
-    TResult? Function(MainScreenEventFloorCall value)? floorCall,
-    TResult? Function(MainScreenEventRealmCall value)? realmCall,
-  }) {
-    return isarCall?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
-    TResult Function(MainScreenEventHiveCall value)? hiveCall,
-    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
-    TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
-    TResult Function(MainScreenEventSembastCall value)? sembastCall,
-    TResult Function(MainScreenEventDriftCall value)? driftCall,
-    TResult Function(MainScreenEventFloorCall value)? floorCall,
-    TResult Function(MainScreenEventRealmCall value)? realmCall,
-    required TResult orElse(),
-  }) {
-    if (isarCall != null) {
-      return isarCall(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class MainScreenEventIsarCall implements MainScreenEvent {
-  const factory MainScreenEventIsarCall() = _$MainScreenEventIsarCallImpl;
 }
 
 /// @nodoc
@@ -294,7 +152,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
@@ -302,6 +159,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     required TResult Function() driftCall,
     required TResult Function() floorCall,
     required TResult Function() realmCall,
+    required TResult Function() realmVNCall,
   }) {
     return hiveCall();
   }
@@ -309,7 +167,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
@@ -317,6 +174,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
     TResult? Function()? realmCall,
+    TResult? Function()? realmVNCall,
   }) {
     return hiveCall?.call();
   }
@@ -324,7 +182,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
@@ -332,6 +189,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     TResult Function()? driftCall,
     TResult Function()? floorCall,
     TResult Function()? realmCall,
+    TResult Function()? realmVNCall,
     required TResult orElse(),
   }) {
     if (hiveCall != null) {
@@ -343,7 +201,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventHiveNoJsonCall value)
         hiveNoJsonCall,
@@ -352,6 +209,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
     required TResult Function(MainScreenEventRealmCall value) realmCall,
+    required TResult Function(MainScreenEventRealmVNCall value) realmVNCall,
   }) {
     return hiveCall(this);
   }
@@ -359,7 +217,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -367,6 +224,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
     TResult? Function(MainScreenEventRealmCall value)? realmCall,
+    TResult? Function(MainScreenEventRealmVNCall value)? realmVNCall,
   }) {
     return hiveCall?.call(this);
   }
@@ -374,7 +232,6 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -382,6 +239,7 @@ class _$MainScreenEventHiveCallImpl implements MainScreenEventHiveCall {
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
     TResult Function(MainScreenEventRealmCall value)? realmCall,
+    TResult Function(MainScreenEventRealmVNCall value)? realmVNCall,
     required TResult orElse(),
   }) {
     if (hiveCall != null) {
@@ -438,7 +296,6 @@ class _$MainScreenEventHiveNoJsonCallImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
@@ -446,6 +303,7 @@ class _$MainScreenEventHiveNoJsonCallImpl
     required TResult Function() driftCall,
     required TResult Function() floorCall,
     required TResult Function() realmCall,
+    required TResult Function() realmVNCall,
   }) {
     return hiveNoJsonCall();
   }
@@ -453,7 +311,6 @@ class _$MainScreenEventHiveNoJsonCallImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
@@ -461,6 +318,7 @@ class _$MainScreenEventHiveNoJsonCallImpl
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
     TResult? Function()? realmCall,
+    TResult? Function()? realmVNCall,
   }) {
     return hiveNoJsonCall?.call();
   }
@@ -468,7 +326,6 @@ class _$MainScreenEventHiveNoJsonCallImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
@@ -476,6 +333,7 @@ class _$MainScreenEventHiveNoJsonCallImpl
     TResult Function()? driftCall,
     TResult Function()? floorCall,
     TResult Function()? realmCall,
+    TResult Function()? realmVNCall,
     required TResult orElse(),
   }) {
     if (hiveNoJsonCall != null) {
@@ -487,7 +345,6 @@ class _$MainScreenEventHiveNoJsonCallImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventHiveNoJsonCall value)
         hiveNoJsonCall,
@@ -496,6 +353,7 @@ class _$MainScreenEventHiveNoJsonCallImpl
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
     required TResult Function(MainScreenEventRealmCall value) realmCall,
+    required TResult Function(MainScreenEventRealmVNCall value) realmVNCall,
   }) {
     return hiveNoJsonCall(this);
   }
@@ -503,7 +361,6 @@ class _$MainScreenEventHiveNoJsonCallImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -511,6 +368,7 @@ class _$MainScreenEventHiveNoJsonCallImpl
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
     TResult? Function(MainScreenEventRealmCall value)? realmCall,
+    TResult? Function(MainScreenEventRealmVNCall value)? realmVNCall,
   }) {
     return hiveNoJsonCall?.call(this);
   }
@@ -518,7 +376,6 @@ class _$MainScreenEventHiveNoJsonCallImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -526,6 +383,7 @@ class _$MainScreenEventHiveNoJsonCallImpl
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
     TResult Function(MainScreenEventRealmCall value)? realmCall,
+    TResult Function(MainScreenEventRealmVNCall value)? realmVNCall,
     required TResult orElse(),
   }) {
     if (hiveNoJsonCall != null) {
@@ -583,7 +441,6 @@ class _$MainScreenEventObjectBoxCallImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
@@ -591,6 +448,7 @@ class _$MainScreenEventObjectBoxCallImpl
     required TResult Function() driftCall,
     required TResult Function() floorCall,
     required TResult Function() realmCall,
+    required TResult Function() realmVNCall,
   }) {
     return objectBoxCall();
   }
@@ -598,7 +456,6 @@ class _$MainScreenEventObjectBoxCallImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
@@ -606,6 +463,7 @@ class _$MainScreenEventObjectBoxCallImpl
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
     TResult? Function()? realmCall,
+    TResult? Function()? realmVNCall,
   }) {
     return objectBoxCall?.call();
   }
@@ -613,7 +471,6 @@ class _$MainScreenEventObjectBoxCallImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
@@ -621,6 +478,7 @@ class _$MainScreenEventObjectBoxCallImpl
     TResult Function()? driftCall,
     TResult Function()? floorCall,
     TResult Function()? realmCall,
+    TResult Function()? realmVNCall,
     required TResult orElse(),
   }) {
     if (objectBoxCall != null) {
@@ -632,7 +490,6 @@ class _$MainScreenEventObjectBoxCallImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventHiveNoJsonCall value)
         hiveNoJsonCall,
@@ -641,6 +498,7 @@ class _$MainScreenEventObjectBoxCallImpl
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
     required TResult Function(MainScreenEventRealmCall value) realmCall,
+    required TResult Function(MainScreenEventRealmVNCall value) realmVNCall,
   }) {
     return objectBoxCall(this);
   }
@@ -648,7 +506,6 @@ class _$MainScreenEventObjectBoxCallImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -656,6 +513,7 @@ class _$MainScreenEventObjectBoxCallImpl
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
     TResult? Function(MainScreenEventRealmCall value)? realmCall,
+    TResult? Function(MainScreenEventRealmVNCall value)? realmVNCall,
   }) {
     return objectBoxCall?.call(this);
   }
@@ -663,7 +521,6 @@ class _$MainScreenEventObjectBoxCallImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -671,6 +528,7 @@ class _$MainScreenEventObjectBoxCallImpl
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
     TResult Function(MainScreenEventRealmCall value)? realmCall,
+    TResult Function(MainScreenEventRealmVNCall value)? realmVNCall,
     required TResult orElse(),
   }) {
     if (objectBoxCall != null) {
@@ -727,7 +585,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
@@ -735,6 +592,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     required TResult Function() driftCall,
     required TResult Function() floorCall,
     required TResult Function() realmCall,
+    required TResult Function() realmVNCall,
   }) {
     return sembastCall();
   }
@@ -742,7 +600,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
@@ -750,6 +607,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
     TResult? Function()? realmCall,
+    TResult? Function()? realmVNCall,
   }) {
     return sembastCall?.call();
   }
@@ -757,7 +615,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
@@ -765,6 +622,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     TResult Function()? driftCall,
     TResult Function()? floorCall,
     TResult Function()? realmCall,
+    TResult Function()? realmVNCall,
     required TResult orElse(),
   }) {
     if (sembastCall != null) {
@@ -776,7 +634,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventHiveNoJsonCall value)
         hiveNoJsonCall,
@@ -785,6 +642,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
     required TResult Function(MainScreenEventRealmCall value) realmCall,
+    required TResult Function(MainScreenEventRealmVNCall value) realmVNCall,
   }) {
     return sembastCall(this);
   }
@@ -792,7 +650,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -800,6 +657,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
     TResult? Function(MainScreenEventRealmCall value)? realmCall,
+    TResult? Function(MainScreenEventRealmVNCall value)? realmVNCall,
   }) {
     return sembastCall?.call(this);
   }
@@ -807,7 +665,6 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -815,6 +672,7 @@ class _$MainScreenEventSembastCallImpl implements MainScreenEventSembastCall {
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
     TResult Function(MainScreenEventRealmCall value)? realmCall,
+    TResult Function(MainScreenEventRealmVNCall value)? realmVNCall,
     required TResult orElse(),
   }) {
     if (sembastCall != null) {
@@ -869,7 +727,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
@@ -877,6 +734,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     required TResult Function() driftCall,
     required TResult Function() floorCall,
     required TResult Function() realmCall,
+    required TResult Function() realmVNCall,
   }) {
     return driftCall();
   }
@@ -884,7 +742,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
@@ -892,6 +749,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
     TResult? Function()? realmCall,
+    TResult? Function()? realmVNCall,
   }) {
     return driftCall?.call();
   }
@@ -899,7 +757,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
@@ -907,6 +764,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     TResult Function()? driftCall,
     TResult Function()? floorCall,
     TResult Function()? realmCall,
+    TResult Function()? realmVNCall,
     required TResult orElse(),
   }) {
     if (driftCall != null) {
@@ -918,7 +776,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventHiveNoJsonCall value)
         hiveNoJsonCall,
@@ -927,6 +784,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
     required TResult Function(MainScreenEventRealmCall value) realmCall,
+    required TResult Function(MainScreenEventRealmVNCall value) realmVNCall,
   }) {
     return driftCall(this);
   }
@@ -934,7 +792,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -942,6 +799,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
     TResult? Function(MainScreenEventRealmCall value)? realmCall,
+    TResult? Function(MainScreenEventRealmVNCall value)? realmVNCall,
   }) {
     return driftCall?.call(this);
   }
@@ -949,7 +807,6 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -957,6 +814,7 @@ class _$MainScreenEventDriftCallImpl implements MainScreenEventDriftCall {
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
     TResult Function(MainScreenEventRealmCall value)? realmCall,
+    TResult Function(MainScreenEventRealmVNCall value)? realmVNCall,
     required TResult orElse(),
   }) {
     if (driftCall != null) {
@@ -1011,7 +869,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
@@ -1019,6 +876,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     required TResult Function() driftCall,
     required TResult Function() floorCall,
     required TResult Function() realmCall,
+    required TResult Function() realmVNCall,
   }) {
     return floorCall();
   }
@@ -1026,7 +884,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
@@ -1034,6 +891,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
     TResult? Function()? realmCall,
+    TResult? Function()? realmVNCall,
   }) {
     return floorCall?.call();
   }
@@ -1041,7 +899,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
@@ -1049,6 +906,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     TResult Function()? driftCall,
     TResult Function()? floorCall,
     TResult Function()? realmCall,
+    TResult Function()? realmVNCall,
     required TResult orElse(),
   }) {
     if (floorCall != null) {
@@ -1060,7 +918,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventHiveNoJsonCall value)
         hiveNoJsonCall,
@@ -1069,6 +926,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
     required TResult Function(MainScreenEventRealmCall value) realmCall,
+    required TResult Function(MainScreenEventRealmVNCall value) realmVNCall,
   }) {
     return floorCall(this);
   }
@@ -1076,7 +934,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -1084,6 +941,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
     TResult? Function(MainScreenEventRealmCall value)? realmCall,
+    TResult? Function(MainScreenEventRealmVNCall value)? realmVNCall,
   }) {
     return floorCall?.call(this);
   }
@@ -1091,7 +949,6 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -1099,6 +956,7 @@ class _$MainScreenEventFloorCallImpl implements MainScreenEventFloorCall {
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
     TResult Function(MainScreenEventRealmCall value)? realmCall,
+    TResult Function(MainScreenEventRealmVNCall value)? realmVNCall,
     required TResult orElse(),
   }) {
     if (floorCall != null) {
@@ -1153,7 +1011,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() isarCall,
     required TResult Function() hiveCall,
     required TResult Function() hiveNoJsonCall,
     required TResult Function() objectBoxCall,
@@ -1161,6 +1018,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     required TResult Function() driftCall,
     required TResult Function() floorCall,
     required TResult Function() realmCall,
+    required TResult Function() realmVNCall,
   }) {
     return realmCall();
   }
@@ -1168,7 +1026,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? isarCall,
     TResult? Function()? hiveCall,
     TResult? Function()? hiveNoJsonCall,
     TResult? Function()? objectBoxCall,
@@ -1176,6 +1033,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     TResult? Function()? driftCall,
     TResult? Function()? floorCall,
     TResult? Function()? realmCall,
+    TResult? Function()? realmVNCall,
   }) {
     return realmCall?.call();
   }
@@ -1183,7 +1041,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? isarCall,
     TResult Function()? hiveCall,
     TResult Function()? hiveNoJsonCall,
     TResult Function()? objectBoxCall,
@@ -1191,6 +1048,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     TResult Function()? driftCall,
     TResult Function()? floorCall,
     TResult Function()? realmCall,
+    TResult Function()? realmVNCall,
     required TResult orElse(),
   }) {
     if (realmCall != null) {
@@ -1202,7 +1060,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(MainScreenEventIsarCall value) isarCall,
     required TResult Function(MainScreenEventHiveCall value) hiveCall,
     required TResult Function(MainScreenEventHiveNoJsonCall value)
         hiveNoJsonCall,
@@ -1211,6 +1068,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     required TResult Function(MainScreenEventDriftCall value) driftCall,
     required TResult Function(MainScreenEventFloorCall value) floorCall,
     required TResult Function(MainScreenEventRealmCall value) realmCall,
+    required TResult Function(MainScreenEventRealmVNCall value) realmVNCall,
   }) {
     return realmCall(this);
   }
@@ -1218,7 +1076,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(MainScreenEventIsarCall value)? isarCall,
     TResult? Function(MainScreenEventHiveCall value)? hiveCall,
     TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -1226,6 +1083,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     TResult? Function(MainScreenEventDriftCall value)? driftCall,
     TResult? Function(MainScreenEventFloorCall value)? floorCall,
     TResult? Function(MainScreenEventRealmCall value)? realmCall,
+    TResult? Function(MainScreenEventRealmVNCall value)? realmVNCall,
   }) {
     return realmCall?.call(this);
   }
@@ -1233,7 +1091,6 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(MainScreenEventIsarCall value)? isarCall,
     TResult Function(MainScreenEventHiveCall value)? hiveCall,
     TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
     TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
@@ -1241,6 +1098,7 @@ class _$MainScreenEventRealmCallImpl implements MainScreenEventRealmCall {
     TResult Function(MainScreenEventDriftCall value)? driftCall,
     TResult Function(MainScreenEventFloorCall value)? floorCall,
     TResult Function(MainScreenEventRealmCall value)? realmCall,
+    TResult Function(MainScreenEventRealmVNCall value)? realmVNCall,
     required TResult orElse(),
   }) {
     if (realmCall != null) {
@@ -1255,8 +1113,150 @@ abstract class MainScreenEventRealmCall implements MainScreenEvent {
 }
 
 /// @nodoc
+abstract class _$$MainScreenEventRealmVNCallImplCopyWith<$Res> {
+  factory _$$MainScreenEventRealmVNCallImplCopyWith(
+          _$MainScreenEventRealmVNCallImpl value,
+          $Res Function(_$MainScreenEventRealmVNCallImpl) then) =
+      __$$MainScreenEventRealmVNCallImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MainScreenEventRealmVNCallImplCopyWithImpl<$Res>
+    extends _$MainScreenEventCopyWithImpl<$Res,
+        _$MainScreenEventRealmVNCallImpl>
+    implements _$$MainScreenEventRealmVNCallImplCopyWith<$Res> {
+  __$$MainScreenEventRealmVNCallImplCopyWithImpl(
+      _$MainScreenEventRealmVNCallImpl _value,
+      $Res Function(_$MainScreenEventRealmVNCallImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MainScreenEventRealmVNCallImpl implements MainScreenEventRealmVNCall {
+  const _$MainScreenEventRealmVNCallImpl();
+
+  @override
+  String toString() {
+    return 'MainScreenEvent.realmVNCall()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MainScreenEventRealmVNCallImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() hiveCall,
+    required TResult Function() hiveNoJsonCall,
+    required TResult Function() objectBoxCall,
+    required TResult Function() sembastCall,
+    required TResult Function() driftCall,
+    required TResult Function() floorCall,
+    required TResult Function() realmCall,
+    required TResult Function() realmVNCall,
+  }) {
+    return realmVNCall();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? hiveCall,
+    TResult? Function()? hiveNoJsonCall,
+    TResult? Function()? objectBoxCall,
+    TResult? Function()? sembastCall,
+    TResult? Function()? driftCall,
+    TResult? Function()? floorCall,
+    TResult? Function()? realmCall,
+    TResult? Function()? realmVNCall,
+  }) {
+    return realmVNCall?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? hiveCall,
+    TResult Function()? hiveNoJsonCall,
+    TResult Function()? objectBoxCall,
+    TResult Function()? sembastCall,
+    TResult Function()? driftCall,
+    TResult Function()? floorCall,
+    TResult Function()? realmCall,
+    TResult Function()? realmVNCall,
+    required TResult orElse(),
+  }) {
+    if (realmVNCall != null) {
+      return realmVNCall();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MainScreenEventHiveCall value) hiveCall,
+    required TResult Function(MainScreenEventHiveNoJsonCall value)
+        hiveNoJsonCall,
+    required TResult Function(MainScreenEventObjectBoxCall value) objectBoxCall,
+    required TResult Function(MainScreenEventSembastCall value) sembastCall,
+    required TResult Function(MainScreenEventDriftCall value) driftCall,
+    required TResult Function(MainScreenEventFloorCall value) floorCall,
+    required TResult Function(MainScreenEventRealmCall value) realmCall,
+    required TResult Function(MainScreenEventRealmVNCall value) realmVNCall,
+  }) {
+    return realmVNCall(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult? Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
+    TResult? Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
+    TResult? Function(MainScreenEventSembastCall value)? sembastCall,
+    TResult? Function(MainScreenEventDriftCall value)? driftCall,
+    TResult? Function(MainScreenEventFloorCall value)? floorCall,
+    TResult? Function(MainScreenEventRealmCall value)? realmCall,
+    TResult? Function(MainScreenEventRealmVNCall value)? realmVNCall,
+  }) {
+    return realmVNCall?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MainScreenEventHiveCall value)? hiveCall,
+    TResult Function(MainScreenEventHiveNoJsonCall value)? hiveNoJsonCall,
+    TResult Function(MainScreenEventObjectBoxCall value)? objectBoxCall,
+    TResult Function(MainScreenEventSembastCall value)? sembastCall,
+    TResult Function(MainScreenEventDriftCall value)? driftCall,
+    TResult Function(MainScreenEventFloorCall value)? floorCall,
+    TResult Function(MainScreenEventRealmCall value)? realmCall,
+    TResult Function(MainScreenEventRealmVNCall value)? realmVNCall,
+    required TResult orElse(),
+  }) {
+    if (realmVNCall != null) {
+      return realmVNCall(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MainScreenEventRealmVNCall implements MainScreenEvent {
+  const factory MainScreenEventRealmVNCall() = _$MainScreenEventRealmVNCallImpl;
+}
+
+/// @nodoc
 mixin _$MainScreenState {
-  String get isar => throw _privateConstructorUsedError;
   String get hive => throw _privateConstructorUsedError;
   String get hiveNoJson => throw _privateConstructorUsedError;
   String get objectBox => throw _privateConstructorUsedError;
@@ -1264,6 +1264,7 @@ mixin _$MainScreenState {
   String get drift => throw _privateConstructorUsedError;
   String get floor => throw _privateConstructorUsedError;
   String get realm => throw _privateConstructorUsedError;
+  String get realmVN => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainScreenStateCopyWith<MainScreenState> get copyWith =>
@@ -1277,14 +1278,14 @@ abstract class $MainScreenStateCopyWith<$Res> {
       _$MainScreenStateCopyWithImpl<$Res, MainScreenState>;
   @useResult
   $Res call(
-      {String isar,
-      String hive,
+      {String hive,
       String hiveNoJson,
       String objectBox,
       String sembast,
       String drift,
       String floor,
-      String realm});
+      String realm,
+      String realmVN});
 }
 
 /// @nodoc
@@ -1300,7 +1301,6 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isar = null,
     Object? hive = null,
     Object? hiveNoJson = null,
     Object? objectBox = null,
@@ -1308,12 +1308,9 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
     Object? drift = null,
     Object? floor = null,
     Object? realm = null,
+    Object? realmVN = null,
   }) {
     return _then(_value.copyWith(
-      isar: null == isar
-          ? _value.isar
-          : isar // ignore: cast_nullable_to_non_nullable
-              as String,
       hive: null == hive
           ? _value.hive
           : hive // ignore: cast_nullable_to_non_nullable
@@ -1341,6 +1338,10 @@ class _$MainScreenStateCopyWithImpl<$Res, $Val extends MainScreenState>
       realm: null == realm
           ? _value.realm
           : realm // ignore: cast_nullable_to_non_nullable
+              as String,
+      realmVN: null == realmVN
+          ? _value.realmVN
+          : realmVN // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -1355,14 +1356,14 @@ abstract class _$$MainScreenStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String isar,
-      String hive,
+      {String hive,
       String hiveNoJson,
       String objectBox,
       String sembast,
       String drift,
       String floor,
-      String realm});
+      String realm,
+      String realmVN});
 }
 
 /// @nodoc
@@ -1376,7 +1377,6 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isar = null,
     Object? hive = null,
     Object? hiveNoJson = null,
     Object? objectBox = null,
@@ -1384,12 +1384,9 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
     Object? drift = null,
     Object? floor = null,
     Object? realm = null,
+    Object? realmVN = null,
   }) {
     return _then(_$MainScreenStateImpl(
-      isar: null == isar
-          ? _value.isar
-          : isar // ignore: cast_nullable_to_non_nullable
-              as String,
       hive: null == hive
           ? _value.hive
           : hive // ignore: cast_nullable_to_non_nullable
@@ -1418,6 +1415,10 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
           ? _value.realm
           : realm // ignore: cast_nullable_to_non_nullable
               as String,
+      realmVN: null == realmVN
+          ? _value.realmVN
+          : realmVN // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1426,18 +1427,15 @@ class __$$MainScreenStateImplCopyWithImpl<$Res>
 
 class _$MainScreenStateImpl implements _MainScreenState {
   const _$MainScreenStateImpl(
-      {this.isar = '',
-      this.hive = '',
+      {this.hive = '',
       this.hiveNoJson = '',
       this.objectBox = '',
       this.sembast = '',
       this.drift = '',
       this.floor = '',
-      this.realm = ''});
+      this.realm = '',
+      this.realmVN = ''});
 
-  @override
-  @JsonKey()
-  final String isar;
   @override
   @JsonKey()
   final String hive;
@@ -1459,10 +1457,13 @@ class _$MainScreenStateImpl implements _MainScreenState {
   @override
   @JsonKey()
   final String realm;
+  @override
+  @JsonKey()
+  final String realmVN;
 
   @override
   String toString() {
-    return 'MainScreenState(isar: $isar, hive: $hive, hiveNoJson: $hiveNoJson, objectBox: $objectBox, sembast: $sembast, drift: $drift, floor: $floor, realm: $realm)';
+    return 'MainScreenState(hive: $hive, hiveNoJson: $hiveNoJson, objectBox: $objectBox, sembast: $sembast, drift: $drift, floor: $floor, realm: $realm, realmVN: $realmVN)';
   }
 
   @override
@@ -1470,7 +1471,6 @@ class _$MainScreenStateImpl implements _MainScreenState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MainScreenStateImpl &&
-            (identical(other.isar, isar) || other.isar == isar) &&
             (identical(other.hive, hive) || other.hive == hive) &&
             (identical(other.hiveNoJson, hiveNoJson) ||
                 other.hiveNoJson == hiveNoJson) &&
@@ -1479,12 +1479,13 @@ class _$MainScreenStateImpl implements _MainScreenState {
             (identical(other.sembast, sembast) || other.sembast == sembast) &&
             (identical(other.drift, drift) || other.drift == drift) &&
             (identical(other.floor, floor) || other.floor == floor) &&
-            (identical(other.realm, realm) || other.realm == realm));
+            (identical(other.realm, realm) || other.realm == realm) &&
+            (identical(other.realmVN, realmVN) || other.realmVN == realmVN));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isar, hive, hiveNoJson,
-      objectBox, sembast, drift, floor, realm);
+  int get hashCode => Object.hash(runtimeType, hive, hiveNoJson, objectBox,
+      sembast, drift, floor, realm, realmVN);
 
   @JsonKey(ignore: true)
   @override
@@ -1496,17 +1497,15 @@ class _$MainScreenStateImpl implements _MainScreenState {
 
 abstract class _MainScreenState implements MainScreenState {
   const factory _MainScreenState(
-      {final String isar,
-      final String hive,
+      {final String hive,
       final String hiveNoJson,
       final String objectBox,
       final String sembast,
       final String drift,
       final String floor,
-      final String realm}) = _$MainScreenStateImpl;
+      final String realm,
+      final String realmVN}) = _$MainScreenStateImpl;
 
-  @override
-  String get isar;
   @override
   String get hive;
   @override
@@ -1521,6 +1520,8 @@ abstract class _MainScreenState implements MainScreenState {
   String get floor;
   @override
   String get realm;
+  @override
+  String get realmVN;
   @override
   @JsonKey(ignore: true)
   _$$MainScreenStateImplCopyWith<_$MainScreenStateImpl> get copyWith =>

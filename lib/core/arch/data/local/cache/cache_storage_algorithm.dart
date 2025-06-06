@@ -27,9 +27,9 @@ abstract class CacheStorageAlgorithm<T> {
           _CacheAndBackgroundUpdateAlgorithm(storage: cacheStorage),
       };
 
-  Future<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Future<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   });
 
@@ -50,9 +50,9 @@ class _CachePreferablyAlgorithm<T> extends CacheStorageAlgorithm<T> {
   const _CachePreferablyAlgorithm({required super.storage});
 
   @override
-  Future<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Future<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   }) async {
     try {
@@ -63,7 +63,7 @@ class _CachePreferablyAlgorithm<T> extends CacheStorageAlgorithm<T> {
 
       if (cache.isOk) return cache;
 
-      final networkResult = await action();
+      final networkResult = await sourceAction();
 
       if (networkResult.isOk) {
         await _safeCache(key, networkResult.data);
@@ -80,9 +80,9 @@ class _CacheOnlyAlgorithm<T> extends CacheStorageAlgorithm<T> {
   const _CacheOnlyAlgorithm({required super.storage});
 
   @override
-  Future<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Future<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   }) async {
     try {
@@ -101,13 +101,13 @@ class _NetworkPreferablyAlgorithm<T> extends CacheStorageAlgorithm<T> {
   const _NetworkPreferablyAlgorithm({required super.storage});
 
   @override
-  Future<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Future<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   }) async {
     try {
-      final networkResult = await action();
+      final networkResult = await sourceAction();
 
       if (networkResult.isOk) {
         await _safeCache(key, networkResult.data);
@@ -132,9 +132,9 @@ class _CacheAndBackgroundUpdateAlgorithm<T> extends CacheStorageAlgorithm<T> {
   const _CacheAndBackgroundUpdateAlgorithm({required super.storage});
 
   @override
-  Future<Result<T>> execute(
-    Future<Result<T>> Function() action,
-    String key, {
+  Future<Result<T>> execute({
+    required Future<Result<T>> Function() sourceAction,
+    required String key,
     Duration? expirationDuration,
   }) async {
     final cachedData = await _storage.get(
@@ -143,20 +143,20 @@ class _CacheAndBackgroundUpdateAlgorithm<T> extends CacheStorageAlgorithm<T> {
     );
 
     if (cachedData.isOk) {
-      unawaited(_backgroundUpdateFuture(action, key));
+      unawaited(_backgroundUpdateFuture(sourceAction, key));
       return cachedData;
     } else {
-      final networkResult = await _backgroundUpdateFuture(action, key);
+      final networkResult = await _backgroundUpdateFuture(sourceAction, key);
       return networkResult;
     }
   }
 
   Future<Result<T>> _backgroundUpdateFuture(
-    Future<Result<T>> Function() action,
+    Future<Result<T>> Function() sourceAction,
     String key,
   ) async {
     try {
-      final freshNetworkResult = await action();
+      final freshNetworkResult = await sourceAction();
 
       if (freshNetworkResult.isOk) {
         await _safeCache(key, freshNetworkResult.data);

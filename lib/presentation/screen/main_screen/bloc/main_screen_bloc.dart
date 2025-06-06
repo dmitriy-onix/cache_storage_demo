@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage.dart';
+import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_algorithm_value_notifier.dart';
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_policy.dart';
 import 'package:cache_storage_demo/core/arch/logger/app_logger_impl.dart';
 import 'package:cache_storage_demo/data/mapper/hive_db_mapper.dart';
@@ -23,19 +24,7 @@ import 'package:onix_flutter_core_models/onix_flutter_core_models.dart';
 
 class MainScreenBloc
     extends BaseBloc<MainScreenEvent, MainScreenState, MainScreenSR> {
-  MainScreenBloc() : super(const MainScreenState()) {
-    on<MainScreenEventHiveCall>(_onHiveCall);
-    on<MainScreenEventHiveNoJsonCall>(_onHiveNoJsonCall);
-    on<MainScreenEventIsarCall>(_onIsarCall);
-    on<MainScreenEventObjectBoxCall>(
-      _onObjectBoxCall,
-      transformer: restartable(),
-    );
-    on<MainScreenEventSembastCall>(_onSembastCall);
-    on<MainScreenEventDriftCall>(_onDriftCall);
-    on<MainScreenEventFloorCall>(_onFloorCall);
-    on<MainScreenEventRealmCall>(_onRealmCall);
-  }
+  CacheStorageAlgorithmValueNotifier<ProductEntity>? realmCacheStorageNotifier;
 
   final _hiveCacheStorage = GetIt.I.get<ProductHiveCacheStorage>();
   final _hiveNoJsonCacheStorage = GetIt.I.get<ProductHiveCacheStorageNoJson>();
@@ -45,9 +34,26 @@ class MainScreenBloc
   final _floorCacheStorage = GetIt.I.get<ProductFloorCacheStorage>();
   final _realmCacheStorage = GetIt.I.get<ProductRealmCacheStorage>();
 
-  // final _isarCacheStorage = GetIt.I.get<ProductIsarCacheStorage>();
-
   final _hiveMappers = HiveDbMappers();
+
+  MainScreenBloc() : super(const MainScreenState()) {
+    on<MainScreenEventHiveCall>(_onHiveCall);
+    on<MainScreenEventHiveNoJsonCall>(_onHiveNoJsonCall);
+    on<MainScreenEventObjectBoxCall>(
+      _onObjectBoxCall,
+      transformer: restartable(),
+    );
+    on<MainScreenEventSembastCall>(_onSembastCall);
+    on<MainScreenEventDriftCall>(_onDriftCall);
+    on<MainScreenEventFloorCall>(_onFloorCall);
+    on<MainScreenEventRealmCall>(_onRealmCall);
+    on<MainScreenEventRealmVNCall>(_onRealmVnCall);
+
+    realmCacheStorageNotifier =
+        _realmCacheStorage.cachingAlgorithmForPolicyValueNotifier(
+      CacheStoragePolicy.cacheAndBackgroundUpdate,
+    );
+  }
 
   Future<void> _onRealmCall(
     MainScreenEventRealmCall event,
@@ -55,7 +61,7 @@ class MainScreenBloc
   ) async {
     final startTime = DateTime.now();
 
-    final data = await _onCallDB(_realmCacheStorage, _getProductAction);
+    final data = await _onCallDB(_realmCacheStorage, _getProduct);
 
     final endTime = DateTime.now();
     final timeDiff = endTime.difference(startTime);
@@ -65,13 +71,45 @@ class MainScreenBloc
     emit(state.copyWith(realm: _formatTimeDiff(timeDiff)));
   }
 
+  Future<void> _onRealmVnCall(
+    MainScreenEventRealmVNCall event,
+    Emitter<MainScreenState> emit,
+  ) async {
+    final stopWatch = Stopwatch()..start();
+
+    Future<Result<ProductEntity>> getProduct() async {
+      // Simulate a network call
+      await Future.delayed(const Duration(seconds: 2));
+      final data = ProductEntity(
+        id: 'product-1',
+        name: 'Product 1',
+        price: 10,
+      );
+      return Result.ok(data);
+    }
+
+    await realmCacheStorageNotifier?.execute(
+      sourceAction: getProduct,
+      key: 'product-1',
+      expirationDuration: CacheStorageConsts.testValueExpirationDuration,
+    );
+    final duration = stopWatch.elapsed;
+
+    logger.i('RealmVn call time: $duration');
+    emit(state.copyWith(realmVN: _formatTimeDiff(duration)));
+
+    if (stopWatch.isRunning) {
+      stopWatch.stop();
+    }
+  }
+
   Future<void> _onFloorCall(
     MainScreenEventFloorCall event,
     Emitter<MainScreenState> emit,
   ) async {
     final startTime = DateTime.now();
 
-    final data = await _onCallDB(_floorCacheStorage, _getProductAction);
+    final data = await _onCallDB(_floorCacheStorage, _getProduct);
 
     final endTime = DateTime.now();
     final timeDiff = endTime.difference(startTime);
@@ -87,7 +125,7 @@ class MainScreenBloc
   ) async {
     final startTime = DateTime.now();
 
-    final data = await _onCallDB(_driftCacheStorage, _getProductAction);
+    final data = await _onCallDB(_driftCacheStorage, _getProduct);
 
     final endTime = DateTime.now();
     final timeDiff = endTime.difference(startTime);
@@ -103,7 +141,7 @@ class MainScreenBloc
   ) async {
     final startTime = DateTime.now();
 
-    final data = await _onCallDB(_sembastCacheStorage, _getProductAction);
+    final data = await _onCallDB(_sembastCacheStorage, _getProduct);
 
     final endTime = DateTime.now();
     final timeDiff = endTime.difference(startTime);
@@ -123,11 +161,14 @@ class MainScreenBloc
           CacheStoragePolicy.cacheAndBackgroundUpdate,
         )
         .execute(
-          _getProductAction,
-          'product-1',
+          sourceAction: _getProduct,
+          key: 'product-1',
           expirationDuration: CacheStorageConsts.testValueExpirationDuration,
         );
 
+    // emit.forEach will listen to the stream and allow you to emit states for each item.
+    // It automatically handles stream subscription and cancellation when the BLoC is closed
+    // or when a new MainScreenEventObjectBoxCall event arrives (due to restartable()).
     await emit.forEach<Result<ProductEntity>>(
       stream,
       onData: (resultData) {
@@ -142,35 +183,6 @@ class MainScreenBloc
     if (stopWatch.isRunning) {
       stopWatch.stop();
     }
-
-    /*final startTime = DateTime.now();
-
-    final data = await _onCallDB(_objectBoxCacheStorage, _getProductAction);
-
-    final endTime = DateTime.now();
-    final timeDiff = endTime.difference(startTime);
-
-    logger.i('objectBox data: ${data.data}, call time: $timeDiff');
-
-    emit(state.copyWith(objectBox: _formatTimeDiff(timeDiff)));*/
-  }
-
-  Future<void> _onIsarCall(
-    MainScreenEventIsarCall event,
-    Emitter<MainScreenState> emit,
-  ) async {
-    /*final startTime = DateTime.now();
-    final data = await _isarCacheStorage
-        .cachingAlgorithmForPolicy(CacheStoragePolicy.staleWhileRevalidate)
-        .execute(
-          _getProductAction,
-          'product-1',
-          expirationDuration: CacheStorageConsts.testValueExpirationDuration,
-        );
-
-    final endTime = DateTime.now();
-
-    logger.i('isar data: $data, call time: ${endTime.difference(startTime)}');*/
   }
 
   Future<void> _onHiveCall(
@@ -179,7 +191,7 @@ class MainScreenBloc
   ) async {
     final startTime = DateTime.now();
 
-    final data = await _onCallDB(_hiveCacheStorage, _getProductAction);
+    final data = await _onCallDB(_hiveCacheStorage, _getProduct);
 
     final endTime = DateTime.now();
     final timeDiff = endTime.difference(startTime);
@@ -195,7 +207,7 @@ class MainScreenBloc
   ) async {
     final startTime = DateTime.now();
 
-    Future<Result<ProductHO>> getProductAction() async {
+    Future<Result<ProductHO>> getProduct() async {
       // Simulate a network call
       await Future.delayed(const Duration(seconds: 2));
       final data = ProductEntity(
@@ -209,7 +221,7 @@ class MainScreenBloc
       return Result.ok(result);
     }
 
-    final data = await _onCallDB(_hiveNoJsonCacheStorage, getProductAction);
+    final data = await _onCallDB(_hiveNoJsonCacheStorage, getProduct);
 
     final result = _hiveMappers.mapProductDbToEntity(data.data);
 
@@ -221,7 +233,7 @@ class MainScreenBloc
     emit(state.copyWith(hiveNoJson: _formatTimeDiff(timeDiff)));
   }
 
-  Future<Result<ProductEntity>> _getProductAction() async {
+  Future<Result<ProductEntity>> _getProduct() async {
     // Simulate a network call
     await Future.delayed(const Duration(seconds: 2));
     final data = ProductEntity(
@@ -234,13 +246,13 @@ class MainScreenBloc
 
   Future<Result<T>> _onCallDB<T>(
     CacheStorage<T> storage,
-    Future<Result<T>> Function() action,
+    Future<Result<T>> Function() apiAction,
   ) async {
     final data = await storage
         .cachingAlgorithmForPolicy(CacheStoragePolicy.cacheAndBackgroundUpdate)
         .execute(
-          action,
-          'product-1',
+          sourceAction: apiAction,
+          key: 'product-1',
           expirationDuration: CacheStorageConsts.testValueExpirationDuration,
         );
 
@@ -249,5 +261,11 @@ class MainScreenBloc
 
   String _formatTimeDiff(Duration diff) {
     return '${diff.inSeconds}sec, ${diff.inMilliseconds}ms, ${diff.inMicroseconds}microsec';
+  }
+
+  @override
+  void dispose() {
+    realmCacheStorageNotifier?.dispose();
+    super.dispose();
   }
 }

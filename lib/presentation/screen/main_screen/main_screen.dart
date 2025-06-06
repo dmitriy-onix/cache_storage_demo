@@ -1,8 +1,11 @@
+import 'package:cache_storage_demo/core/arch/logger/app_logger_impl.dart';
+import 'package:cache_storage_demo/domain/entity/product_entity.dart';
 import 'package:cache_storage_demo/presentation/screen/main_screen/bloc/main_screen_imports.dart';
 import 'package:cache_storage_demo/presentation/screen/main_screen/widgets/d_b_info.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:onix_flutter_bloc/onix_flutter_bloc.dart';
+import 'package:onix_flutter_core_models/onix_flutter_core_models.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({
@@ -17,6 +20,8 @@ class _MainScreenState extends BaseState<MainScreenState, MainScreenBloc,
     MainScreenSR, MainScreen> {
   @override
   Widget buildWidget(BuildContext context) {
+    final resultNotifier =
+        blocOf(context).realmCacheStorageNotifier?.resultNotifier;
     return srObserver(
       context: context,
       child: Scaffold(
@@ -25,11 +30,6 @@ class _MainScreenState extends BaseState<MainScreenState, MainScreenBloc,
           child: blocConsumer(
             builder: (state) => Column(
               children: [
-                /*const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () => _onIsar(context),
-                  child: const Text('test Isar'),
-                ),*/
                 const SizedBox(height: 20),
                 DBInfo(
                   onPressed: () => _onHive(context),
@@ -72,6 +72,41 @@ class _MainScreenState extends BaseState<MainScreenState, MainScreenBloc,
                   title: 'Realm',
                   timeInfo: state.realm,
                 ),
+                const SizedBox(height: 20),
+                if (resultNotifier != null)
+                  ValueListenableBuilder<Result<ProductEntity>?>(
+                    valueListenable: resultNotifier,
+                    builder: (context, result, child) {
+                      if (result == null) {
+                        return DBInfo(
+                          onPressed: () => _onRealmVN(context),
+                          title: 'Realm VN',
+                          timeInfo: 'N/A',
+                        );
+                      }
+                      if (result.isError) {
+                        return Center(
+                          child: Text('Error: ${result.asError.error}'),
+                        );
+                      }
+                      if (result.isOk) {
+                        final data = result.data;
+                        logger.i('resultNotifier data: $data');
+                        return DBInfo(
+                          onPressed: () => _onRealmVN(context),
+                          title: 'Realm VN',
+                          timeInfo: state.realmVN,
+                        );
+                      }
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                  )
+                else
+                  DBInfo(
+                    onPressed: () => _onRealmVN(context),
+                    title: 'Realm VN',
+                    timeInfo: 'N/A',
+                  ),
               ],
             ),
             listener: (context, state) {},
@@ -90,10 +125,6 @@ class _MainScreenState extends BaseState<MainScreenState, MainScreenBloc,
       case LoadFinished():
         break;
     }
-  }
-
-  void _onIsar(BuildContext context) {
-    blocOf(context).add(const MainScreenEvent.isarCall());
   }
 
   void _onHive(BuildContext context) {
@@ -122,5 +153,9 @@ class _MainScreenState extends BaseState<MainScreenState, MainScreenBloc,
 
   void _onHiveNoJson(BuildContext context) {
     blocOf(context).add(const MainScreenEvent.hiveNoJsonCall());
+  }
+
+  void _onRealmVN(BuildContext context) {
+    blocOf(context).add(const MainScreenEvent.realmVNCall());
   }
 }
