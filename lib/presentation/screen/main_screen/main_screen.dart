@@ -1,9 +1,12 @@
+import 'package:cache_storage_demo/app/router/app_route.dart';
 import 'package:cache_storage_demo/core/arch/logger/app_logger_impl.dart';
 import 'package:cache_storage_demo/domain/entity/product_entity.dart';
+import 'package:cache_storage_demo/domain/usecase/get_product_use_case.dart';
 import 'package:cache_storage_demo/presentation/screen/main_screen/bloc/main_screen_imports.dart';
 import 'package:cache_storage_demo/presentation/screen/main_screen/widgets/d_b_info.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 import 'package:onix_flutter_bloc/onix_flutter_bloc.dart';
 import 'package:onix_flutter_core_models/onix_flutter_core_models.dart';
 
@@ -25,7 +28,16 @@ class _MainScreenState extends BaseState<MainScreenState, MainScreenBloc,
     return srObserver(
       context: context,
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          actions: [
+            IconButton(
+              icon: const Text('Nav example'),
+              onPressed: () {
+                context.pushNamed(AppRoute.example.name);
+              },
+            ),
+          ],
+        ),
         body: SizedBox.expand(
           child: blocConsumer(
             builder: (state) => Column(
@@ -118,7 +130,9 @@ class _MainScreenState extends BaseState<MainScreenState, MainScreenBloc,
   }
 
   @override
-  MainScreenBloc createBloc() => GetIt.I.get<MainScreenBloc>();
+  MainScreenBloc createBloc() => MainScreenBloc(
+        getProductUseCase: GetIt.I.get<GetProductUseCase>(),
+      );
 
   void _onSingleResult(BuildContext context, MainScreenSR singleResult) {
     switch (singleResult) {

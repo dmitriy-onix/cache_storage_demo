@@ -2,6 +2,7 @@
 
 import 'package:cache_storage_demo/app/router/app_route.dart';
 import 'package:cache_storage_demo/core/di/services.dart';
+import 'package:cache_storage_demo/presentation/screen/example_screen/example_screen.dart';
 import 'package:cache_storage_demo/presentation/screen/main_screen/main_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,6 +34,11 @@ class AppRouter {
           path: AppRoute.main.routePath,
           name: AppRoute.main.name,
           builder: (context, state) => const MainScreen(),
+        ),
+        GoRoute(
+          path: AppRoute.example.routePath,
+          name: AppRoute.example.name,
+          builder: (context, state) => const ExampleScreen(),
         ), //{routes end}
       ],
     );

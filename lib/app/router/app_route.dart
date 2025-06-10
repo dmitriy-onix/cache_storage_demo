@@ -1,7 +1,8 @@
 import 'package:cache_storage_demo/app/router/app_route_location.dart';
 
 enum AppRoute {
-  main('/main');
+  main('/main'),
+  example('/example');
 //{routes declaration end}
 
   final String routePath;

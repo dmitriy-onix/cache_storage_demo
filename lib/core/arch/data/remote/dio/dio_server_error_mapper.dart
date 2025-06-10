@@ -16,7 +16,7 @@ class DioServerErrorMapper extends ServerErrorMapper {
   @override
   Exception? onCustomError(Object data, int? statusCode) {
     switch (data) {
-      case (DefaultApiError defaultError):
+      case (final DefaultApiError defaultError):
         {
           return ApiFailure(
             ServerFailure.response,
@@ -24,7 +24,7 @@ class DioServerErrorMapper extends ServerErrorMapper {
             message: defaultError.message ?? '',
           );
         }
-      case (ValidatorApiError validatorError):
+      case (final ValidatorApiError validatorError):
         {
           return ApiFailure(
             ServerFailure.response,
