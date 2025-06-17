@@ -4,11 +4,11 @@ import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage_poli
 import 'package:cache_storage_demo/core/arch/data/remote/dio/dio_server_error_mapper.dart';
 import 'package:cache_storage_demo/core/arch/logger/app_logger_impl.dart';
 import 'package:cache_storage_demo/data/mapper/product_mappers.dart';
+import 'package:cache_storage_demo/data/model/local/hive_db/product_ho.dart';
 import 'package:cache_storage_demo/data/model/remote/product/product_response.dart';
 import 'package:cache_storage_demo/data/source/local/cache/cache_storage_consts.dart';
 import 'package:cache_storage_demo/data/source/local/cache/product_hive_no_json_cache_storage.dart';
 import 'package:cache_storage_demo/data/source/remote/product_api_source.dart';
-import 'package:cache_storage_demo/domain/entity/cache/product_ho.dart';
 import 'package:cache_storage_demo/domain/entity/product_entity.dart';
 import 'package:cache_storage_demo/domain/repository/product_repository.dart';
 import 'package:onix_flutter_core/onix_flutter_core.dart';

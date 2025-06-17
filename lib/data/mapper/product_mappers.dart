@@ -1,5 +1,5 @@
+import 'package:cache_storage_demo/data/model/local/hive_db/product_ho.dart';
 import 'package:cache_storage_demo/data/model/remote/product/product_response.dart';
-import 'package:cache_storage_demo/domain/entity/cache/product_ho.dart';
 import 'package:cache_storage_demo/domain/entity/product_entity.dart';
 import 'package:onix_flutter_core/onix_flutter_core.dart';
 
