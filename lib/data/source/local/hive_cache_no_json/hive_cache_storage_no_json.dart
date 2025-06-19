@@ -36,30 +36,34 @@ abstract class HiveCacheStorageNoJson<T extends HiveObject>
     String key, {
     Duration? expirationDuration,
   }) async {
-    final metaBox = await _getMetaBox();
-    final meta = metaBox.get(key);
+    try {
+      final metaBox = await _getMetaBox();
+      final meta = metaBox.get(key);
 
-    if (meta == null) {
-      return Result.error(error: NoDataFoundFailure());
-    }
-
-    if (expirationDuration != null) {
-      final now = DateTime.now();
-      final isExpired = now.difference(meta.createdAt) > expirationDuration;
-      if (isExpired) {
-        await delete(key);
-        return Result.error(error: ExpiredDataFailure());
+      if (meta == null) {
+        return Result.error(error: NoDataFoundFailure());
       }
+
+      if (expirationDuration != null) {
+        final now = DateTime.now();
+        final isExpired = now.difference(meta.createdAt) > expirationDuration;
+        if (isExpired) {
+          await delete(key);
+          return Result.error(error: ExpiredDataFailure());
+        }
+      }
+
+      final dataBox = await _getDataBox();
+      final item = dataBox.get(key);
+
+      if (item == null) {
+        return Result.error(error: NoDataFoundFailure());
+      }
+
+      return Result.ok(item);
+    } catch (e, s) {
+      return Result.error(error: CacheStorageUndefinedFailure(e, s));
     }
-
-    final dataBox = await _getDataBox();
-    final item = dataBox.get(key);
-
-    if (item == null) {
-      return Result.error(error: NoDataFoundFailure());
-    }
-
-    return Result.ok(item);
   }
 
   @override
