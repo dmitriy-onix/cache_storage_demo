@@ -21,8 +21,6 @@ abstract class CacheStorageAlgorithm<T> {
           _NetworkPreferablyAlgorithm(storage: cacheStorage),
         CacheStoragePolicy.cachePreferably =>
           _CachePreferablyAlgorithm(storage: cacheStorage),
-        CacheStoragePolicy.cacheOnly =>
-          _CacheOnlyAlgorithm(storage: cacheStorage),
         CacheStoragePolicy.cacheAndBackgroundUpdate =>
           _CacheAndBackgroundUpdateAlgorithm(storage: cacheStorage),
       };
@@ -71,27 +69,11 @@ class _CachePreferablyAlgorithm<T> extends CacheStorageAlgorithm<T> {
 
       return networkResult;
     } catch (e, s) {
-      return Result.error(error: CacheStorageUndefinedFailure(e, s));
-    }
-  }
-}
-
-class _CacheOnlyAlgorithm<T> extends CacheStorageAlgorithm<T> {
-  const _CacheOnlyAlgorithm({required super.storage});
-
-  @override
-  Future<Result<T>> execute({
-    required Future<Result<T>> Function() sourceAction,
-    required String key,
-    Duration? expirationDuration,
-  }) async {
-    try {
-      final cache = await _storage.get(
-        key,
-        expirationDuration: expirationDuration,
+      logger.crash(
+        reason: '_CachePreferablyAlgorithm',
+        error: e,
+        stackTrace: s,
       );
-      return cache;
-    } catch (e, s) {
       return Result.error(error: CacheStorageUndefinedFailure(e, s));
     }
   }
@@ -123,6 +105,11 @@ class _NetworkPreferablyAlgorithm<T> extends CacheStorageAlgorithm<T> {
 
       return networkResult;
     } catch (e, s) {
+      logger.crash(
+        reason: '_NetworkPreferablyAlgorithm',
+        error: e,
+        stackTrace: s,
+      );
       return Result.error(error: CacheStorageUndefinedFailure(e, s));
     }
   }
@@ -137,17 +124,26 @@ class _CacheAndBackgroundUpdateAlgorithm<T> extends CacheStorageAlgorithm<T> {
     required String key,
     Duration? expirationDuration,
   }) async {
-    final cachedData = await _storage.get(
-      key,
-      expirationDuration: expirationDuration,
-    );
+    try {
+      final cachedData = await _storage.get(
+        key,
+        expirationDuration: expirationDuration,
+      );
 
-    if (cachedData.isOk) {
-      unawaited(_backgroundUpdateFuture(sourceAction, key));
-      return cachedData;
-    } else {
-      final networkResult = await _backgroundUpdateFuture(sourceAction, key);
-      return networkResult;
+      if (cachedData.isOk) {
+        unawaited(_backgroundUpdateFuture(sourceAction, key));
+        return cachedData;
+      } else {
+        final networkResult = await _backgroundUpdateFuture(sourceAction, key);
+        return networkResult;
+      }
+    } catch (e, s) {
+      logger.crash(
+        reason: '_CacheAndBackgroundUpdateAlgorithm',
+        error: e,
+        stackTrace: s,
+      );
+      return Result.error(error: CacheStorageUndefinedFailure(e, s));
     }
   }
 
@@ -155,16 +151,12 @@ class _CacheAndBackgroundUpdateAlgorithm<T> extends CacheStorageAlgorithm<T> {
     Future<Result<T>> Function() sourceAction,
     String key,
   ) async {
-    try {
-      final freshNetworkResult = await sourceAction();
+    final freshNetworkResult = await sourceAction();
 
-      if (freshNetworkResult.isOk) {
-        await _safeCache(key, freshNetworkResult.data);
-      }
-
-      return freshNetworkResult;
-    } catch (e, s) {
-      return Result.error(error: CacheStorageUndefinedFailure(e, s));
+    if (freshNetworkResult.isOk) {
+      await _safeCache(key, freshNetworkResult.data);
     }
+
+    return freshNetworkResult;
   }
 }

@@ -31,8 +31,6 @@ abstract class CacheStorageAlgorithmValueNotifier<T> {
         _NetworkPreferablyAlgorithmChangeNotifier(storage: cacheStorage),
       CacheStoragePolicy.cachePreferably =>
         _CachePreferablyAlgorithmChangeNotifier(storage: cacheStorage),
-      CacheStoragePolicy.cacheOnly =>
-        _CacheOnlyAlgorithmChangeNotifier(storage: cacheStorage),
       CacheStoragePolicy.cacheAndBackgroundUpdate =>
         _CacheAndBackgroundUpdateAlgorithmChangeNotifier(storage: cacheStorage),
     };
@@ -82,29 +80,6 @@ class _CachePreferablyAlgorithmChangeNotifier<T>
       if (networkResult.isOk) {
         await _safeCache(key, networkResult.data);
       }
-    } catch (e, s) {
-      resultNotifier.value =
-          Result.error(error: CacheStorageUndefinedFailure(e, s));
-    }
-  }
-}
-
-class _CacheOnlyAlgorithmChangeNotifier<T>
-    extends CacheStorageAlgorithmValueNotifier<T> {
-  _CacheOnlyAlgorithmChangeNotifier({required super.storage});
-
-  @override
-  Future<void> execute({
-    required Future<Result<T>> Function() sourceAction,
-    required String key,
-    Duration? expirationDuration,
-  }) async {
-    try {
-      final cache = await _storage.get(
-        key,
-        expirationDuration: expirationDuration,
-      );
-      resultNotifier.value = cache;
     } catch (e, s) {
       resultNotifier.value =
           Result.error(error: CacheStorageUndefinedFailure(e, s));

@@ -1,4 +1,5 @@
 import 'package:cache_storage_demo/core/arch/data/local/cache/cache_storage.dart';
+import 'package:cache_storage_demo/core/arch/logger/app_logger_impl.dart';
 import 'package:cache_storage_demo/data/source/local/hive_cache_no_json/hive_meta_record.dart';
 import 'package:cache_storage_demo/domain/entity/failure/db_failure.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
@@ -41,6 +42,7 @@ abstract class HiveCacheStorageNoJson<T extends HiveObject>
       final meta = metaBox.get(key);
 
       if (meta == null) {
+        logger.w('No metadata found for key: $key');
         return Result.error(error: NoDataFoundFailure());
       }
 
@@ -49,6 +51,7 @@ abstract class HiveCacheStorageNoJson<T extends HiveObject>
         final isExpired = now.difference(meta.createdAt) > expirationDuration;
         if (isExpired) {
           await delete(key);
+          logger.w('Data expired for key: $key');
           return Result.error(error: ExpiredDataFailure());
         }
       }
@@ -57,11 +60,18 @@ abstract class HiveCacheStorageNoJson<T extends HiveObject>
       final item = dataBox.get(key);
 
       if (item == null) {
+        logger.w('No data found for key: $key');
         return Result.error(error: NoDataFoundFailure());
       }
 
       return Result.ok(item);
     } catch (e, s) {
+      logger.crash(
+        reason: 'Error getting data for key: $key',
+        error: e,
+        stackTrace: s,
+      );
+
       return Result.error(error: CacheStorageUndefinedFailure(e, s));
     }
   }
@@ -69,9 +79,11 @@ abstract class HiveCacheStorageNoJson<T extends HiveObject>
   @override
   Future<void> save(String key, T value) async {
     final dataBox = await _getDataBox();
+    await dataBox.delete(key);
     await dataBox.put(key, value);
 
     final metaBox = await _getMetaBox();
+    await metaBox.delete(key);
     final meta = HiveMetaRecord(createdAt: DateTime.now());
     await metaBox.put(key, meta);
   }
